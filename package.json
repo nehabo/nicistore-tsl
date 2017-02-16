@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "NICI Online Storefront",
   "private": false,
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/yoonic/nicistore.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoonic/nicistore.git"
   },
   "main": "index.js",
   "scripts": {
@@ -28,15 +28,18 @@
     "file-loader": "0.8.4",
     "fluxible": "0.5.7",
     "fluxible-addons-react": "0.1.8",
+    "formsy-react": "^0.19.2",
     "intl": "1.1.0",
     "intl-locales-supported": "1.0.0",
+    "lodash": "^4.17.4",
     "marked": "^0.3.5",
     "moment": "^2.13.0",
     "node-sass": "3.3.2",
-    "react": "0.13.3",
+    "react": "15.0.0",
     "react-ga": "1.2.0",
     "react-intl": "1.2.2",
     "react-router": "0.13.3",
+    "react-tokeninput": "^2.2.2",
     "sass-loader": "2.0.1",
     "serialize-javascript": "1.2.0",
     "style-loader": "0.12.4",

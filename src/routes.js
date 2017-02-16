@@ -30,6 +30,11 @@ import InfoPage from './components/pages/StaticContent/InfoPage';
 import ArticlesListingPage from './components/pages/Articles/ArticlesListingPage';
 import ArticlePage from './components/pages/Articles/ArticlePage';
 
+import CorporatePage from './components/pages/Corporate/CorporatePage';
+
+import PharmacyPage from './components/pages/Pharmacy/PharmacyPage';
+
+
 import Admin from './components/pages/Admin/Admin';
 import AdminCollections from './components/pages/Admin/Collections/AdminCollections';
 import AdminCollectionsEdit from './components/pages/Admin/Collections/AdminCollectionsEdit';
@@ -48,6 +53,8 @@ import AdminProductsEdit from './components/pages/Admin/Products/AdminProductsEd
 const routes = (
     <Route name="app" path="/:locale" handler={Application}>
         <DefaultRoute name="homepage" handler={Homepage} />
+        <Route name="corporate" handler={CorporatePage} />
+        <Route name="pharmacy" handler={PharmacyPage} />
         <Route name="login" handler={Login} />
         <Route name="logout" handler={Logout} />
         <Route name="register" handler={Register} />
