@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -69,7 +70,7 @@ class ProductSuggestions extends React.Component {
                     :
                     <div className="product-suggestions__list">
                         {this.props.products.map((product, idx) => {
-                            let params = Object.assign({
+                            let params = _.assign({
                                 productId: product.id,
                                 productSlug: slugify(intlStore.getMessage(product.name))
                             }, routeParams);

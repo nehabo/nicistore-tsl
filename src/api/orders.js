@@ -2,6 +2,7 @@
  * Imports
  */
 import superagent from 'superagent';
+import _ from 'lodash';
 
 /**
  * Atlas Orders API wrapper
@@ -42,7 +43,7 @@ class OrdersAPI {
         return new Promise((resolve, reject) => {
             let payload = {checkoutId: checkoutId};
             if (data) {
-                payload = Object.assign(payload, data);
+                payload = _.assign(payload, data);
             }
             let request = superagent.post(`${this.baseUrl}/orders`).send(payload);
             if (cartAccessToken) {

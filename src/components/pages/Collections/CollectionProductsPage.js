@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 
@@ -181,7 +182,7 @@ class CollectionProductsPage extends React.Component {
                                          filters={filters}
                                          collection={collection}
                                          products={this.state.products}
-                                         routeParams={Object.assign({collectionId: collection.id}, routeParams)}
+                                         routeParams={_.assign({collectionId: collection.id}, routeParams)}
                                          totalPages={this.state.totalPages}
                                          currentPage={this.state.currentPage} />
                         </div>

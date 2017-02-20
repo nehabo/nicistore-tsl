@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
@@ -53,7 +54,7 @@ class Pagination extends React.Component {
                     links.push(
                         <li key={i} className="pagination__item">
                             <Link className="pagination__link" to={this.props.to}
-                                  params={this.props.params} query={Object.assign({page: i+1}, query)}>
+                                  params={this.props.params} query={_.assign({page: i+1}, query)}>
                                 {i+1}
                             </Link>
                         </li>
@@ -71,7 +72,7 @@ class Pagination extends React.Component {
                 <ul>
                     <li className="pagination__item">
                         <Link className="pagination__link" to={this.props.to}
-                            params={this.props.params} query={Object.assign({page: previousPage}, query)}>
+                            params={this.props.params} query={_.assign({page: previousPage}, query)}>
                             <FormattedMessage
                                 message={intlStore.getMessage(intlData, 'previous')}
                                 locales={intlStore.getCurrentLocale()} />
@@ -80,7 +81,7 @@ class Pagination extends React.Component {
                     {pageLinks()}
                     <li className="pagination__item">
                         <Link className="pagination__link" to={this.props.to}
-                              params={this.props.params} query={Object.assign({page: nextPage}, query)}>
+                              params={this.props.params} query={_.assign({page: nextPage}, query)}>
                             <FormattedMessage
                                 message={intlStore.getMessage(intlData, 'next')}
                                 locales={intlStore.getCurrentLocale()} />

@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import moment from 'moment';
 import {FormattedMessage, FormattedNumber} from 'react-intl';
 import {Link} from 'react-router';
@@ -68,7 +69,7 @@ class OrderDetails extends React.Component {
                                           locales={intlStore.getCurrentLocale()} />
                     </Text>,
                     <span className="order-details__link">
-                        <Link to="product" params={Object.assign({productId: product.id}, routeParams)}>
+                        <Link to="product" params={_.assign({productId: product.id}, routeParams)}>
                             <Text size="small">{product.id}</Text>
                         </Link>
                     </span>,

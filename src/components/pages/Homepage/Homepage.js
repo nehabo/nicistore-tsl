@@ -42,7 +42,7 @@ import intlData from './Homepage.intl';
 /**
  * Component.
  */
- require('./styles.scss');
+ // require('./styles.scss');
 class Homepage extends React.Component {
 
     static contextTypes = {

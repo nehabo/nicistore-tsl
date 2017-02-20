@@ -1,5 +1,6 @@
 import applicationActions from '../../constants/application';
 import contentActions from '../../constants/contents';
+import _ from 'lodash';
 
 let debug = require('debug')('nicistore');
 
@@ -7,7 +8,7 @@ export default async function bulkBannerUpdates(context, payload, done) {
     context.dispatch(contentActions.CONTENTS_BULK_SAVE);
     let promises = payload.map(function (banner) {
         let id = banner.id;
-        let payload = Object.assign({}, banner);
+        let payload = _.assign({}, banner);
         delete payload.id;
         delete payload.type;
         delete payload.comments;

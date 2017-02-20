@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 
@@ -54,7 +55,7 @@ class Account extends React.Component {
     //*** Initial State ***//
 
     state = {
-        user: Object.assign({}, this.context.getStore(AccountStore).getAccountDetails()),
+        user: _.assign({}, this.context.getStore(AccountStore).getAccountDetails()),
         loading: undefined,
         error: undefined,
         lastOrder: undefined,
@@ -92,7 +93,7 @@ class Account extends React.Component {
         // Only update state's user if there's no error (i.e. was successfully updated)
         if (!nextProps._loading && !nextProps._error) {
             this.setState({
-                user: Object.assign({}, nextProps._user)
+                user: _.assign({}, nextProps._user)
             });
         }
 
@@ -136,7 +137,7 @@ class Account extends React.Component {
         if (modal === 'newAddress' || modal === 'editAddress' || modal === 'deleteAddress') {
             this.setState({
                 openModal: modal,
-                address: Object.assign({}, data)
+                address: _.assign({}, data)
             });
         } else {
             this.setState({openModal: modal});

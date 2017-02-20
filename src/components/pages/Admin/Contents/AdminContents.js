@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
@@ -147,7 +148,7 @@ class AdminContents extends React.Component {
                         }
                     </Text>,
                     <span className="admin-contents__link">
-                        <Link to="adm-content-edit" params={Object.assign({contentId: content.id}, routeParams)}>
+                        <Link to="adm-content-edit" params={_.assign({contentId: content.id}, routeParams)}>
                             <FormattedMessage message={intlStore.getMessage(content.name)}
                                               locales={intlStore.getCurrentLocale()} />
                         </Link>

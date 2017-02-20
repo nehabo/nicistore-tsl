@@ -2,6 +2,7 @@
  * Imports
  */
 import superagent from 'superagent';
+import _ from 'lodash';
 
 /**
  * Atlas Checkouts API wrapper
@@ -42,7 +43,7 @@ class CheckoutsAPI {
         return new Promise((resolve, reject) => {
             let payload = {cartId: cartId};
             if (data) {
-                payload = Object.assign(payload, data);
+                payload = _.assign(payload, data);
             }
             let request = superagent.post(`${this.baseUrl}/checkouts`).send(payload);
             if (cartAccessToken) {

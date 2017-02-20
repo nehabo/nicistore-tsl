@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
@@ -43,7 +44,7 @@ class ArticleSummary extends React.Component {
         //
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: intlStore.getCurrentLocale()}; // Base route params
-        let articleRouteParams = Object.assign({
+        let articleRouteParams = _.assign({
             contentId: this.props.content.id,
             contentSlug: slugify(intlStore.getMessage(this.props.content.name))
         }, routeParams);

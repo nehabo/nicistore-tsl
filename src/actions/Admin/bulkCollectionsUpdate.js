@@ -1,5 +1,6 @@
 import applicationActions from '../../constants/application';
 import collectionActions from '../../constants/collections';
+import _ from 'lodash';
 
 let debug = require('debug')('nicistore');
 
@@ -7,7 +8,7 @@ export default async function bulkCollectionsUpdate(context, payload, done) {
     context.dispatch(collectionActions.COLLECTIONS_BULK_SAVE);
     let promises = payload.map(function (collection) {
         let id = collection.id;
-        let payload = Object.assign({}, collection);
+        let payload = _.assign({}, collection);
         delete payload.id;
         delete payload.description;
         delete payload.slug;

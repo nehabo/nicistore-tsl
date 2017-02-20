@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {Link} from 'react-router';
 
 // Flux
@@ -39,7 +40,7 @@ class MainNavigation extends React.Component {
                         {this.props.links.map(function (link, idx) {
                             return (
                                 <li key={idx} className="main-navigation__item">
-                                    <Link to={link.to} params={Object.assign(link.params || {}, routeParams)}>
+                                    <Link to={link.to} params={_.assign(link.params || {}, routeParams)}>
                                         {link.name}
                                     </Link>
                                 </li>

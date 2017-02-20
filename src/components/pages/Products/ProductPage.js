@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import async from 'async';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage, FormattedNumber} from 'react-intl';
@@ -164,7 +165,7 @@ class ProductPage extends React.Component {
     //*** View Controllers ***//
 
     handleAddToCartClick = () => {
-        let payload = Object.assign({details: this.state.product}, {
+        let payload = _.assign({details: this.state.product}, {
             id: this.state.product.id,
             quantity: this.getQuantityInCart() + this.state.quantity
         });
@@ -213,7 +214,7 @@ class ProductPage extends React.Component {
                               message={intlStore.getMessage(collection.name)}
                               locales={intlStore.getCurrentLocale()} />,
                     to: 'collection-slug',
-                    params: Object.assign({
+                    params: _.assign({
                         collectionId: collection.id,
                         collectionSlug: slugify(intlStore.getMessage(collection.name))
                     }, routeParams)
@@ -349,7 +350,7 @@ class ProductPage extends React.Component {
                                     );
                                 })}
                             </div>
-                            
+
                             {!this.state.suggestionsLoading && this.state.suggestions.length === 0 ?
                                 <div className="product-page__suggestions product-page__suggestions--no-border"></div>
                                 :

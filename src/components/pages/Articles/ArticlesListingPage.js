@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import async from 'async';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
@@ -76,11 +77,11 @@ class ArticlesListingPage extends React.Component {
         productSuggestions: this.context.getStore(ProductSuggestionsStore).getProducts(),
         productSuggestionsLoading: this.context.getStore(ProductSuggestionsStore).isLoading()
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./ArticlesListingPage.scss');
     }
@@ -98,7 +99,7 @@ class ArticlesListingPage extends React.Component {
     }
 
     //*** Template ***//
-    
+
     render() {
 
         //
@@ -128,7 +129,7 @@ class ArticlesListingPage extends React.Component {
                         <Heading size="large">
                             <i className="fa fa-file-text-o" aria-hidden="true" />
                             &nbsp;
-                            <FormattedMessage 
+                            <FormattedMessage
                                 message={intlStore.getMessage(intlData, 'title')}
                                 locales={intlStore.getCurrentLocale()}
                                 appTitle={config.app.title} />
@@ -190,7 +191,7 @@ class ArticlesListingPage extends React.Component {
                         {this.state.contents.length > 0 ?
                             <div className="article-listing-page__list">
                                 {this.state.contents.filter(c => c.type === 'article').map((content, idx) => {
-                                    let articleRouteParams = Object.assign({
+                                    let articleRouteParams = _.assign({
                                         contentId: content.id,
                                         contentSlug: slugify(intlStore.getMessage(content.name))
                                     }, routeParams);
@@ -207,7 +208,7 @@ class ArticlesListingPage extends React.Component {
                             :
                             <div className="article-listing-page__list article-listing-page__noResults">
                                 <Text>
-                                    <FormattedMessage 
+                                    <FormattedMessage
                                         message={intlStore.getMessage(intlData, 'noResults')}
                                         locales={intlStore.getCurrentLocale()} />!
                                 </Text>

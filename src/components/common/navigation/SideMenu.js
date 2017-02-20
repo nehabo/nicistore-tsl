@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
@@ -75,7 +76,7 @@ class SideMenu extends React.Component {
                         {this.props.collections && this.props.collections.map((obj, idx) => {
                             return (
                                 <li key={idx} className="side-menu__item side-menu__collection-item" onClick={this.handleItemClick}>
-                                    <Link to={obj.to} params={Object.assign(obj.params || {}, routeParams)}>
+                                    <Link to={obj.to} params={_.assign(obj.params || {}, routeParams)}>
                                         <Text size="medium">{obj.name}</Text>
                                     </Link>
                                 </li>

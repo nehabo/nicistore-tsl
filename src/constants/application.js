@@ -1,4 +1,4 @@
-import keyMirror from 'react/lib/keyMirror';
+import keyMirror from 'keymirror';
 
 export default keyMirror({
     APPLICATION_CHANGE_ROUTE: null,

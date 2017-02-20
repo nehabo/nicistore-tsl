@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
@@ -30,9 +31,9 @@ class ArticleSuggestions extends React.Component {
         // Component styles
         require('./ArticleSuggestions.scss');
     }
-    
+
     //*** Template ***//
-    
+
     render() {
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: intlStore.getCurrentLocale()}; // Base route params
@@ -45,7 +46,7 @@ class ArticleSuggestions extends React.Component {
                 }
                 <div className="article-suggestions__list">
                     {this.props.articles.map(function (article) {
-                        let articleRouteParams = Object.assign({
+                        let articleRouteParams = _.assign({
                             contentId: article.id,
                             contentSlug: slugify(intlStore.getMessage(article.name))
                         }, routeParams);

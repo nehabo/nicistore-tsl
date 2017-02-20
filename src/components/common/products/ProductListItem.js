@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {FormattedMessage, FormattedNumber} from 'react-intl';
 import {Link} from 'react-router';
 
@@ -55,7 +56,7 @@ class ProductListItem extends React.Component {
         let routeParams = {locale: intlStore.getCurrentLocale()};
 
         // Link params for this product
-        let linkParams = Object.assign({
+        let linkParams = _.assign({
             productId: this.props.product.id,
             productSlug: slugify(intlStore.getMessage(this.props.product.name))
         }, routeParams);

@@ -130,7 +130,10 @@ server.use(async function (req, res, next) {
         await dispatchFetchAllCollections(context);
 
         debug('Executing navigate action');
-        Router.run(app.getComponent(), req.originalUrl, async function (Handler, state) {
+        Router.match(
+          { routes: app.getComponent(),
+            location: req.url
+          }, async function (Handler, state) {
 
             // Trigger fetching and wait for the data required by the components of the given route
             await fetchData(context, state);

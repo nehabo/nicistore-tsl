@@ -2,6 +2,7 @@
  * Imports
  */
 import ga from 'react-ga';
+import _ from 'lodash';
 
 // Flux
 import CheckoutStore from '../../stores/Checkout/CheckoutStore';
@@ -79,7 +80,7 @@ export default function createOrder(context, payload, done) {
                 currency: payload.paymentDetails.currency,
                 metadata: {orderId: order.id},
                 eventsUrl: `${eventsAPIBaseUrl}/orders/${order.id}/spwh`,
-                instrument: Object.assign(payload.paymentDetails.instrument, {
+                instrument: _.assign(payload.paymentDetails.instrument, {
                     type: payload.paymentDetails.chargeType,
                     country: 'PT'
                 })

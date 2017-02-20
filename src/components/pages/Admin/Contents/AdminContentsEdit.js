@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
@@ -139,7 +140,7 @@ class AdminContentsEdit extends React.Component {
 
     handleSaveClick = () => {
         let contentId = this.state.content.id;
-        let payload = Object.assign({}, this.state.content);
+        let payload = _.assign({}, this.state.content);
         delete payload.id;
         delete payload.type;
         delete payload.comments;

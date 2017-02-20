@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
@@ -94,9 +95,9 @@ class AdminProducts extends React.Component {
     handleUploadCloseClick = () => {
         this.setState({showUploadModal: false});
     };
-    
+
     handleUploadSubmitClick = (data) => {
-        this.context.executeAction(productsUpload, data); 
+        this.context.executeAction(productsUpload, data);
     };
 
     // New Product Modal
@@ -196,7 +197,7 @@ class AdminProducts extends React.Component {
                 data: [
                     <Text size="medium">{product.sku}</Text>,
                     <span className="admin-products__link">
-                        <Link to="adm-product-edit" params={Object.assign({productId: product.id}, routeParams)}>
+                        <Link to="adm-product-edit" params={_.assign({productId: product.id}, routeParams)}>
                             <FormattedMessage
                                 message={intlStore.getMessage(product.name)}
                                 locales={intlStore.getCurrentLocale()} />

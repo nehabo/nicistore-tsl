@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import moment from 'moment';
 import {FormattedMessage} from 'react-intl';
@@ -102,7 +103,7 @@ class AdminOrders extends React.Component {
                 data: [
                     <Text size="medium">{moment(order.createdAt).format('YYYY/MM/DD HH:mm:ss')}</Text>,
                     <span className="admin-orders__link">
-                        <Link to="adm-order-edit" params={Object.assign({orderId: order.id}, routeParams)}>
+                        <Link to="adm-order-edit" params={_.assign({orderId: order.id}, routeParams)}>
                             <Text size="small">{order.id}</Text>
                         </Link>
                     </span>,

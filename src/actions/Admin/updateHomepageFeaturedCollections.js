@@ -1,5 +1,6 @@
 import applicationActions from '../../constants/application';
 import collectionActions from '../../constants/collections';
+import _ from 'lodash';
 
 export default async function updateHomepageFeaturedCollections(context, payload, done) {
     context.dispatch(collectionActions.COLLECTIONS_HOMEPAGE_FEATURED_UPDATE);
@@ -9,7 +10,7 @@ export default async function updateHomepageFeaturedCollections(context, payload
     } else {
         let promises = payload.map(function (collection) {
             let id = collection.id;
-            let payload = Object.assign({}, collection);
+            let payload = _.assign({}, collection);
             if (!payload.hasOwnProperty('images')) {
                 payload.images = [];
             }

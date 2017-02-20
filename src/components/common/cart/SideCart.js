@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import {FormattedMessage, FormattedNumber} from 'react-intl';
 import {Link} from 'react-router';
@@ -61,7 +62,7 @@ class SideCart extends React.Component {
     };
 
     handleQuantityChange = (product, value) => {
-        let payload = Object.assign({details: product.details}, {
+        let payload = _.assign({details: product.details}, {
             id: product.id,
             quantity: value
         });

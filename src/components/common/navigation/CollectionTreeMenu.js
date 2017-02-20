@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
@@ -29,11 +30,11 @@ class CollectionTreeMenu extends React.Component {
     state = {
         openedDrawer: undefined
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./CollectionTreeMenu.scss');
     }
@@ -47,9 +48,9 @@ class CollectionTreeMenu extends React.Component {
     handleMouseLeave = () => {
         this.setState({openedDrawer: null});
     };
-    
+
     //*** Template ***//
-    
+
     render() {
 
         //
@@ -70,7 +71,7 @@ class CollectionTreeMenu extends React.Component {
                             if (this.state.openedDrawer && this.state.openedDrawer.id === collection.id) {
                                 className += ' collection-tree-menu__root-item--selected';
                             }
-                            let params = Object.assign({
+                            let params = _.assign({
                                 collectionId: collection.id,
                                 collectionSlug: slugify(intlStore.getMessage(collection.name))
                             }, routeParams);
@@ -95,7 +96,7 @@ class CollectionTreeMenu extends React.Component {
                                     return {
                                         name: intlStore.getMessage(collection.name),
                                         to: 'collection-slug',
-                                        params: Object.assign({
+                                        params: _.assign({
                                             collectionId: collection.id,
                                             collectionSlug: slugify(intlStore.getMessage(collection.name))
                                         }, routeParams)

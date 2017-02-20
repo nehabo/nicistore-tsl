@@ -2,6 +2,7 @@
  * Imports
  */
 import React from 'react';
+import _ from 'lodash';
 import moment from 'moment';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
@@ -30,17 +31,17 @@ class AccountOrders extends React.Component {
     static contextTypes = {
         getStore: React.PropTypes.func.isRequired
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./AccountOrders.scss');
     }
-    
+
     //*** Template ***//
-    
+
     render() {
 
         //
@@ -68,7 +69,7 @@ class AccountOrders extends React.Component {
                     <Text size="small">{moment(order.createdAt).format('YYYY/MM/DD HH:mm:ss')}</Text>,
                     <OrderStatus status={order.status} />,
                     <span className="account-orders__link">
-                        <Link to="account-order-details" params={Object.assign({orderId: order.id}, routeParams)}>
+                        <Link to="account-order-details" params={_.assign({orderId: order.id}, routeParams)}>
                             <Text size="small">Ver Detalhes</Text>
                         </Link>
                     </span>
@@ -116,7 +117,7 @@ class AccountOrders extends React.Component {
                                 <OrderSummary checkout={this.props.lastOrder.checkout} />
                                 <div className="account-orders__last-order-actions">
                                     <div className="account-orders__last-order-action-button">
-                                        <Link to="account-order-details" params={Object.assign({orderId: this.props.lastOrder.id}, routeParams)}>
+                                        <Link to="account-order-details" params={_.assign({orderId: this.props.lastOrder.id}, routeParams)}>
                                             <Button type="default" fontSize="small">
                                                 <FormattedMessage message={intlStore.getMessage(intlData, 'viewDetails')}
                                                                   locales={intlStore.getCurrentLocale()} />
@@ -165,7 +166,7 @@ class AccountOrders extends React.Component {
                         }
                     </div>
                 }
-            </div>  
+            </div>
         );
     }
 }
