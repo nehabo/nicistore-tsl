@@ -1,8 +1,14 @@
 /**
  * Automatically hook babel into all node requires.
  */
-require('babel/register')({
-    optional: ['es7.asyncFunctions', 'es7.classProperties', 'es7.decorators']
+require('babel-register')({
+    presets: ['es2015', 'react', 'stage-0'],
+    plugins: [
+        'transform-runtime',
+        'transform-async-to-generator',
+        'transform-class-properties',
+        'transform-decorators',
+      ],
 });
 
 /**

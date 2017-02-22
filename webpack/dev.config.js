@@ -18,7 +18,7 @@ const config = {
     entry: [
         'webpack-dev-server/client?http://' + host + ':' + port,
         'webpack/hot/only-dev-server',
-        './src/client.js'
+        './src/client.js',
     ],
     output: {
         filename: 'bundle.js',

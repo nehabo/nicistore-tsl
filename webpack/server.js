@@ -17,6 +17,8 @@ const options = {
     inline: true,
     lazy: false,
     publicPath: config.output.publicPath,
+    noInfo: true,
+    quite: true,
     stats: {
         colors: true
     }
@@ -28,6 +30,6 @@ server.listen(port, host, function (err, result) {
     if (err) {
         debug('Error starting webpack dev server', err);
     } else {
-        debug('Webpack at %s running in port: %s', host, port);    
+        debug('Webpack at %s running in port: %s', host, port);
     }
 });

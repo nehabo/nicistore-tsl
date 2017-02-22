@@ -17,7 +17,7 @@ export default async function bulkBannerUpdates(context, payload, done) {
         return context.api.contents.update(id, payload);
     });
     try {
-        await * promises;
+        await Promise.all(promises);
         context.dispatch(contentActions.CONTENTS_BULK_SAVE_SUCCESS, payload);
         context.dispatch(applicationActions.APPLICATION_POST_NOTIFICATION, {
             type: 'success',

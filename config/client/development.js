@@ -1,6 +1,6 @@
 // App config the for development environment.
 // Do not require this directly. Use ./src/config instead.
-export default {
+export const config = {
     app: {
         title: 'NICI Store',
         locale: {

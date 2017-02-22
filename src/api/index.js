@@ -16,6 +16,7 @@ import ProductsAPI from './products';
  */
 class API {
     constructor({options, getAuthToken}) {
+        console.log('OPTIONS', options);
         this.account = new AccountAPI({options: options.atlas, getAuthToken});
         this.cart = new CartsAPI({options: options.atlas, getAuthToken});
         this.checkouts = new CheckoutsAPI({options: options.atlas, getAuthToken});

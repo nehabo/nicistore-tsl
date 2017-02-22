@@ -34,7 +34,7 @@ const loadIntlPolyfill = function (locale) {
     });
 };
 
-/** 
+/**
  * Returns a promise which is resolved as the required locale-data chunks
  * has been downloaded with webpack's require.ensure. For each language,
  * we make two different chunks: one for browsers supporting `intl` and one
@@ -53,7 +53,7 @@ const loadLocaleData = function (locale) {
 
     return new Promise((resolve) => {
 
-        switch (locale) {
+        /*switch (locale) {
 
             //
             // Italian
@@ -149,8 +149,8 @@ const loadLocaleData = function (locale) {
                 else {
                     resolve();
                 }
-        
-        } // EOS (End-of-Switch)
+
+        } // EOS (End-of-Switch)*/
     });
 };
 
