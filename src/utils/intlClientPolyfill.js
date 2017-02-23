@@ -53,7 +53,7 @@ const loadLocaleData = function (locale) {
 
     return new Promise((resolve) => {
 
-        /*switch (locale) {
+        switch (locale) {
 
             //
             // Italian
@@ -150,7 +150,7 @@ const loadLocaleData = function (locale) {
                     resolve();
                 }
 
-        } // EOS (End-of-Switch)*/
+        } // EOS (End-of-Switch)
     });
 };
 

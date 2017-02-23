@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -75,8 +75,7 @@ class CartItem extends React.Component {
                             <Link className="cart-item__link"
                                   to="product" params={linkParams}
                                   onClick={this.handleLinkClick}>
-                                <FormattedMessage message={intlStore.getMessage(product.name)}
-                                                  locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(product.name)}
                             </Link>
                         </Text>
                     </div>

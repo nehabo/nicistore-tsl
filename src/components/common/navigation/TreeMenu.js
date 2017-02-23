@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -119,9 +119,7 @@ class TreeMenu extends React.Component {
                                 <div className={getItemClass(child)}>
                                     <Text size="small">
                                         <span className="tree-menu__link">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(child.name)}
-                                                locales={intlStore.getCurrentLocale()} />
+                                              {intlStore.getMessage(child.name)}
                                         </span>
                                     </Text>
                                 </div>
@@ -157,9 +155,7 @@ class TreeMenu extends React.Component {
                             <div className={getItemClass(item)}>
                                 <Text size="small">
                                     <span className="tree-menu__link">
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(item.name)}
-                                            locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(item.name)}
                                     </span>
                                 </Text>
                             </div>

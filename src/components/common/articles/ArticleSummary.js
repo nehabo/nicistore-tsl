@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -64,22 +64,16 @@ class ArticleSummary extends React.Component {
         return (
             <div className="article-summary">
                 <Heading size={headingSize}>
-                    <FormattedMessage
-                        message={intlStore.getMessage(this.props.content.name)}
-                        locales={intlStore.getCurrentLocale()} />
+                    {intlStore.getMessage(this.props.content.name)}
                 </Heading>
                 <div className="article-summary__content">
                     <Text size="small">
-                        <FormattedMessage
-                            message={intlStore.getMessage(this.props.content.body.summary)}
-                            locales={intlStore.getCurrentLocale()} />
+                        {intlStore.getMessage(this.props.content.body.summary)}
                         {showReadMore ?
                             <Link className="article-summary__link"
                                   to="article-slug"
                                   params={articleRouteParams}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'readMore')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                  message={intlStore.getMessage(intlData, 'readMore')}
                                 <i className="fa fa-file-text-o" aria-hidden="true" />
                             </Link>
                             :

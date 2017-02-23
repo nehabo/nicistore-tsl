@@ -12,7 +12,7 @@ import AccountStore from '../../../stores/Account/AccountStore';
 import ApplicationStore from '../../../stores/Application/ApplicationStore';
 import CollectionsStore from '../../../stores/Collections/CollectionsStore';
 import DrawerStore from '../../../stores/Application/DrawerStore';
-import IntlStore from '../../../stores/Application/IntlStore';
+// import IntlStore from '../../../stores/Application/IntlStore';
 import NotificationQueueStore from '../../../stores/Application/NotificationQueueStore';
 import PageLoadingStore from '../../../stores/Application/PageLoadingStore';
 
@@ -82,17 +82,17 @@ class Application extends React.Component {
     //*** Template ***//
 
     render() {
-        
-        let intlStore = this.context.getStore(IntlStore);
+
+        // let intlStore = this.context.getStore(IntlStore);
 
         // Main navigation menu items
         let collections = this.state.navCollections.map(function (collection) {
             return {
-                name: intlStore.getMessage(collection.name),
+                name: collection.name,
                 to: 'collection-slug',
                 params: {
                     collectionId: collection.id,
-                    collectionSlug: slugify(intlStore.getMessage(collection.name))
+                    collectionSlug: slugify(collection.name)
                 }
             };
         });

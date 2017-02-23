@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -60,8 +60,7 @@ class ArticleSuggestions extends React.Component {
                                           to="article-slug"
                                           params={articleRouteParams}>
                                         <Text>
-                                            <FormattedMessage message={intlStore.getMessage(article.name)}
-                                                              locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(article.name)}
                                         </Text>
                                     </Link>
                                 </div>

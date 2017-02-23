@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -80,9 +80,7 @@ class CollectionTreeMenu extends React.Component {
                                     onMouseEnter={this.handleMouseEnter.bind(null, collection)}>
                                     <Text className="collection-tree-menu__root-item-label" size="medium">
                                         <Link to='collection-slug' params={params}>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(collection.name)}
-                                                locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(collection.name)}
                                         </Link>
                                     </Text>
                                 </li>

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import {IndexRoute, Route} from 'react-router';
+import {IntlProvider} from 'react-intl';
 
 // Required components
 import Application from './components/pages/Application/Application';
@@ -27,8 +28,8 @@ import ResetConfirm from './components/pages/Account/ResetConfirm';
 import StoresPage from './components/pages/StaticContent/StoresPage';
 import InfoPage from './components/pages/StaticContent/InfoPage';
 
-import ArticlesListingPage from './components/pages/Articles/ArticlesListingPage';
-import ArticlePage from './components/pages/Articles/ArticlePage';
+// import ArticlesListingPage from './components/pages/Articles/ArticlesListingPage';
+// import ArticlePage from './components/pages/Articles/ArticlePage';
 
 import CorporatePage from './components/pages/Corporate/CorporatePage';
 
@@ -51,7 +52,8 @@ import AdminProductsEdit from './components/pages/Admin/Products/AdminProductsEd
  * Application's Routes
  */
 const routes = (
-    <Route name="app" path="/:locale" component={Application}>
+  <IntlProvider locale="en">
+    <Route name="app" path="/" component={Application}>
         <IndexRoute name="homepage" component={Homepage} />
         <Route name="corporate" component={CorporatePage} />
         <Route name="pharmacy" component={PharmacyPage} />
@@ -73,9 +75,6 @@ const routes = (
         <Route name="checkout" component={Checkout} />
         <Route name="stores" component={StoresPage} />
         <Route name="info" component={InfoPage} />
-        <Route name="articles" path="articles/?" component={ArticlesListingPage} />
-        <Route name="article" path="articles/:contentId/?" component={ArticlePage} />
-        <Route name="article-slug" path="articles/:contentId/:contentSlug/?" component={ArticlePage} />
         <Route name="adm" component={Admin}>
             <IndexRoute name="adm-dashboard" component={AdminDashboard} />
             <Route name="adm-collections" path="collections" component={AdminCollections} />
@@ -90,6 +89,7 @@ const routes = (
         </Route>
         <Route path="*" name="not-found" component={NotFound} />
     </Route>
+  </IntlProvider>
 );
 
 /**

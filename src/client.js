@@ -22,7 +22,7 @@ import triggerPageLoading from './actions/Application/triggerPageLoading';
 // Utils
 import fetchData from './utils/fetchData';
 import fetchPageTitleAndSnippets from './utils/fetchPageTitleAndSnippets';
-import {loadIntlPolyfill, loadLocaleData} from './utils/intlClientPolyfill';
+// import {loadIntlPolyfill, loadLocaleData} from './utils/intlClientPolyfill';
 
 import config from './config';
 
@@ -201,9 +201,10 @@ function runApp() {
  * (Oh... and start the application afterwards!)
  */
 const locale = document.documentElement.getAttribute('lang') || 'en'; // Default to EN
-loadIntlPolyfill(locale)
-    .then(loadLocaleData.bind(null, locale))
-    .then(runApp)
-    .catch((err) => {
-        console.error('Error loading the Intl polyfill', err);
-});
+// loadIntlPolyfill(locale)
+//     .then(loadLocaleData.bind(null, locale))
+//     .then(runApp)
+//     .catch((err) => {
+//         console.error('Error loading the Intl polyfill', err);
+// });
+runApp();

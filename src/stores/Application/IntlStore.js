@@ -19,7 +19,7 @@ class IntlStore extends BaseStore {
 
     constructor(dispatcher) {
         super(dispatcher);
-        this.currentLocale = undefined;
+        this.currentLocale = 'en';
         this.availableLocales = config.app.locale.available;
         this.defaultLocale = config.app.locale.default;
     }

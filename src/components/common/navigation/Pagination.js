@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -73,18 +73,14 @@ class Pagination extends React.Component {
                     <li className="pagination__item">
                         <Link className="pagination__link" to={this.props.to}
                             params={this.props.params} query={_.assign({page: previousPage}, query)}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'previous')}
-                                locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'previous')}
                         </Link>
                     </li>
                     {pageLinks()}
                     <li className="pagination__item">
                         <Link className="pagination__link" to={this.props.to}
                               params={this.props.params} query={_.assign({page: nextPage}, query)}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'next')}
-                                locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'next')}
                         </Link>
                     </li>
                 </ul>
