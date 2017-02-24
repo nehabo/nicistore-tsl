@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {Link} from 'react-router';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -48,9 +48,7 @@ class HomepageFeaturedCollection extends React.Component {
                     <Link to={this.props.feature.link.to} params={this.props.feature.link.params}>
                         <div>
                             <Text size="large">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(this.props.feature.name)}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(this.props.feature.name)}
                             </Text>
                         </div>
                     </Link>

@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../stores/Application/IntlStore';
@@ -41,12 +41,9 @@ class HeaderHighlight extends React.Component {
                 </div>
                 <div className="header-highlight__shipping-text">
                     <Text size="small" weight="bold">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'freeShipping')}
-                                          locales={intlStore.getCurrentLocale()} />
+                        {intlStore.getMessage(intlData, 'freeShipping')}
                         &nbsp;
-                        <FormattedNumber value="19.90"
-                                         style="currency"
-                                         currency="EUR" />
+                        "$19.99"
                     </Text>
                 </div>
             </div>

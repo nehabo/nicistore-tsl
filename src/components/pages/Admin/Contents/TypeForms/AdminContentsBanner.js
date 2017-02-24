@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
+//
 // Flux
 import IntlStore from '../../../../../stores/Application/IntlStore';
 
@@ -69,9 +69,7 @@ class AdminContentsBanner extends React.Component {
                 <div className="admin-contents-banner__form-item">
                     <div className="admin-contents-banner__image-label">
                         <FormLabel>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'imageLabel')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'imageLabel')}
                         </FormLabel>
                     </div>
                     {this.props.body.image && this.props.body.image.url ?
@@ -80,9 +78,7 @@ class AdminContentsBanner extends React.Component {
                             <div className="admin-contents-banner__placeholder-overlay">
                                 <div>
                                     <Button type="primary" onClick={this.handleRemoveImageClick}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'delete')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'delete')}
                                     </Button>
                                 </div>
                             </div>

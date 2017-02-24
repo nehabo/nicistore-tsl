@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -120,9 +120,7 @@ class CheckoutCustomerDetails extends React.Component {
                                     <Button type="primary"
                                             onClick={this.handleSaveClick}
                                             loading={this.props.loading}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'save')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'save')}
                                     </Button>
                                 </div>
                             </InlineItems>
@@ -140,9 +138,7 @@ class CheckoutCustomerDetails extends React.Component {
                             <div className="checkout-customer-details__actions">
                                 <div className="checkout-customer-details__edit" onClick={this.props.onEditClick}>
                                     <Text weight="bold">
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'edit')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'edit')}
                                     </Text>
                                 </div>
                             </div>

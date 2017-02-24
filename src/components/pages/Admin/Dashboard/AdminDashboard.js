@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../stores/Application/IntlStore';
@@ -51,9 +51,7 @@ class AdminDashboard extends React.Component {
                 <div className="admin-dashboard__header">
                     <div className="admin-dashboard__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     <div className="admin-dashboard__toolbar"></div>
@@ -62,9 +60,7 @@ class AdminDashboard extends React.Component {
                 <div className="admin-dashboard__settings-block">
                     <div className="admin-dashboard__settings-title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'mainNavigationSettingsTitle')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'mainNavigationSettingsTitle')}
                         </Heading>
                     </div>
                     <AdminMainNavigation />
@@ -73,9 +69,7 @@ class AdminDashboard extends React.Component {
                 <div className="admin-dashboard__settings-block">
                     <div className="admin-dashboard__settings-title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'homepageSettingsTitle')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'homepageSettingsTitle')}
                         </Heading>
                     </div>
                     <AdminHomepageSettings />

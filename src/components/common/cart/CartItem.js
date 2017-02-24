@@ -81,7 +81,7 @@ class CartItem extends React.Component {
                     </div>
                     <div className="cart-item__price">
                         <Text size="small" weight="bold">
-                            <FormattedNumber value={product.pricing.retail}
+                            {product.pricing.retail}
                                              style="currency"
                                              currency={product.pricing.currency} />
                         </Text>

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 import {move as arrayMove} from '../../../../utils/arrays';
 
@@ -101,9 +101,7 @@ class AdminMainNavigation extends React.Component {
                     <Button className="admin-main-navigation__update-button" type="primary"
                             onClick={this.handleUpdateClick}
                             loading={this.state.loading}>
-                        <FormattedMessage
-                            message={intlStore.getMessage(intlData, 'update')}
-                            locales={intlStore.getCurrentLocale()} />
+                        {intlStore.getMessage(intlData, 'update')}
                     </Button>
                 </div>
             </div>

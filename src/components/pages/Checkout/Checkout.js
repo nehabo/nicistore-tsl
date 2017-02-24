@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import config from '../../../config';
@@ -345,9 +345,7 @@ class Checkout extends React.Component {
                         <div className="checkout__order-loading">
                             <div className="checkout__order-loading-item">
                                 <Text size="small">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'creatingOrder')}
-                                        locales={intlStore.getCurrentLocale()} />...
+                                    {intlStore.getMessage(intlData, 'creatingOrder')}...
                                 </Text>
                             </div>
                             <div className="checkout__order-loading-item">
@@ -362,9 +360,7 @@ class Checkout extends React.Component {
                         <div className="checkout__order-created">
                             <div className="checkout__order-created-item">
                                 <Text size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'orderCreatedSuccessfully')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'orderCreatedSuccessfully')}
                                 </Text>
                             </div>
                             <div className="checkout__order-created-item">
@@ -377,9 +373,7 @@ class Checkout extends React.Component {
                                     {this.state.user ?
                                         <Link to="account" params={routeParams} className="checkout__order-created-link">
                                             <Button onClick={this.requestNewCart}>
-                                                <FormattedMessage
-                                                    message={intlStore.getMessage(intlData, 'myAccount')}
-                                                    locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'myAccount')}
                                             </Button>
                                         </Link>
                                         :
@@ -387,9 +381,7 @@ class Checkout extends React.Component {
                                     }
                                     <Link to="homepage" params={routeParams} className="checkout__order-created-link">
                                         <Button type="primary" onClick={this.requestNewCart}>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'continueShopping')}
-                                                locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(intlData, 'continueShopping')}
                                         </Button>
                                     </Link>
                                 </InlineItems>
@@ -403,16 +395,12 @@ class Checkout extends React.Component {
                         <div className="checkout__order-error">
                             <div className="checkout__order-error-item">
                                 <Text size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'orderError')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'orderError')}
                                 </Text>
                             </div>
                             <div className="checkout__order-error-item">
                                 <Button onClick={this.handleOrderErrorModalCloseClick}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'tryAgain')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'tryAgain')}
                                 </Button>
                             </div>
                         </div>
@@ -429,9 +417,7 @@ class Checkout extends React.Component {
                 {orderModal()}
                 <div className="checkout__title">
                     <Heading size="large">
-                        <FormattedMessage
-                            message={intlStore.getMessage(intlData, 'title')}
-                            locales={intlStore.getCurrentLocale()} />
+                        {intlStore.getMessage(intlData, 'title')}
                     </Heading>
                 </div>
                 {!this.state.checkout ?

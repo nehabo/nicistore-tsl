@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -22,11 +22,11 @@ class CollectionPicker extends React.Component {
     static contextTypes = {
         getStore: React.PropTypes.func.isRequired
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./CollectionPicker.scss');
     }
@@ -59,8 +59,7 @@ class CollectionPicker extends React.Component {
                     null
                 }
                 {this.props.collections.map((collection, idx) => {
-                    let name = <FormattedMessage message={intlStore.getMessage(collection.name)}
-                                                 locales={intlStore.getCurrentLocale()} />;
+                    let name = intlStore.getMessage(collection.name);
                     let checkboxClass = 'collection-picker__checkbox';
                     if (collection.enabled !== true) {
                         checkboxClass += ' collection-picker__checkbox--disabled';

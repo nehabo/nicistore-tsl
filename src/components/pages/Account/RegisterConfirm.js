@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import AccountStore from '../../../stores/Account/AccountStore';
@@ -40,11 +40,11 @@ class RegisterConfirm extends React.Component {
         userError: this.context.getStore(AccountStore).getError(),
         errorMessage: undefined
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./RegisterConfirm.scss');
 
@@ -95,15 +95,11 @@ class RegisterConfirm extends React.Component {
                         <div>
                             {this.state.userLoading ?
                                 <Text>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'loggingIn')}
-                                        locales={intlStore.getCurrentLocale()} />...
+                                    {intlStore.getMessage(intlData, 'loggingIn')}...
                                 </Text>
                                 :
                                 <Text>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'confirmingAccount')}
-                                        locales={intlStore.getCurrentLocale()} />...
+                                    {intlStore.getMessage(intlData, 'confirmingAccount')}...
                                 </Text>
                             }
                         </div>

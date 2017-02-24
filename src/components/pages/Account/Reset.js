@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -133,15 +133,12 @@ class Reset extends React.Component {
                     <Modal title={intlStore.getMessage(intlData, 'successModalTitle')}>
                         <div className="reset__modal-body">
                             <Text size="medium">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'successModalBody')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'successModalBody')}
                             </Text>
                         </div>
                         <div className="reset__modal-footer">
                             <Button type="primary" onClick={this.handleModalContinueClick}>
-                                <FormattedMessage message={intlStore.getMessage(intlData, 'successModalContinue')}
-                                                  locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'successModalContinue')}
                             </Button>
                         </div>
                     </Modal>
@@ -158,8 +155,7 @@ class Reset extends React.Component {
                 <div className="reset__container">
                     <div className="reset__header">
                         <Heading>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'title')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     {this.state.errorMessage ?
@@ -179,8 +175,7 @@ class Reset extends React.Component {
                         </div>
                         <div className="reset__form-actions">
                             <Button type="primary" onClick={this.handleSubmitClick} disabled={this.state.loading}>
-                                <FormattedMessage message={intlStore.getMessage(intlData, 'submit')}
-                                                  locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'submit')}
                             </Button>
                         </div>
                     </div>

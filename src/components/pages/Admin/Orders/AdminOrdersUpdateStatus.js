@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../stores/Application/IntlStore';
@@ -34,11 +34,11 @@ class AdminOrdersUpdateStatus extends React.Component {
         description: undefined,
         fieldErrors: {}
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
-        
+
         // Component styles
         require('./AdminOrdersUpdateStatus.scss');
     }
@@ -130,16 +130,12 @@ class AdminOrdersUpdateStatus extends React.Component {
                 <div className="admin-orders-update-status__actions">
                     <div className="admin-orders-update-status__button">
                         <Button type="default" onClick={this.props.onCancelClick} disabled={this.props.loading}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'cancel')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'cancel')}
                         </Button>
                     </div>
                     <div className="admin-orders-update-status__button">
                         <Button type="primary" onClick={this.handleSubmitClick} disabled={this.props.loading}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'submit')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'submit')}
                         </Button>
                     </div>
                 </div>

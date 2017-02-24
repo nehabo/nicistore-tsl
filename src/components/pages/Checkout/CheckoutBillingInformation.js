@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -72,8 +72,7 @@ class CheckoutBillingInformation extends React.Component {
         if (param === 'phone' && (value === '' || !(!isNaN(value) && value.length === 9))) {
             let fieldErrors = this.state.fieldErrors;
             fieldErrors.phone = (
-                <FormattedMessage message={this.context.getStore(IntlStore).getMessage(intlData, 'validNumber')}
-                                  locales={this.context.getStore(IntlStore).getCurrentLocale()} />
+                this.context.getStore(IntlStore).getMessage(intlData, 'validNumber')
             );
             this.setState({fieldErrors: fieldErrors});
         } else if (param === 'phone') {
@@ -101,8 +100,7 @@ class CheckoutBillingInformation extends React.Component {
 
         let paymentOptions = (this.props.paymentOptions) ? this.props.paymentOptions.map((paymentMethod) => {
             let name = (
-                <FormattedMessage message={intlStore.getMessage(paymentMethod.label)}
-                                  locales={intlStore.getCurrentLocale()} />
+              intlStore.getMessage(paymentMethod.label)
             );
             let option = {value: paymentMethod.id, name: name};
             if (paymentMethod.id === 'mbway') {
@@ -111,7 +109,7 @@ class CheckoutBillingInformation extends React.Component {
                         <InputField placeholder={intlStore.getMessage(intlData, 'phoneNumber')}
                                     onChange={this.handleInstrumentParamChange.bind(null, 'phone')}
                                     error={this.state.fieldErrors.phone} />
-                    </div>  
+                    </div>
                 );
             }
             return option;

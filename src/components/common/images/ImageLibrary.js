@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -44,9 +44,9 @@ class ImageLibrary extends React.Component {
         images.splice(idx, 1);
         this.props.onChange(images);
     };
-    
+
     //*** Template ***//
-    
+
     render() {
         let intlStore = this.context.getStore(IntlStore);
         return (
@@ -59,14 +59,12 @@ class ImageLibrary extends React.Component {
                                 <div className="image-library__placeholder-overlay-content">
                                     <div className="image-library__button">
                                         <Button type="default" onClick={this.handleViewURLClick.bind(null, idx)}>
-                                            <FormattedMessage message={intlStore.getMessage(intlData, 'viewURL')}
-                                                              locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(intlData, 'viewURL')}
                                         </Button>
                                     </div>
                                     <div className="image-library__button">
                                         <Button type="primary" onClick={this.handleRemoveClick.bind(null, idx)}>
-                                            <FormattedMessage message={intlStore.getMessage(intlData, 'delete')}
-                                                              locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(intlData, 'delete')}
                                         </Button>
                                         </div>
                                 </div>

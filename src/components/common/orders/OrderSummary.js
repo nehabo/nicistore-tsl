@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -49,23 +49,17 @@ class OrderSummary extends React.Component {
                     <div className="order-summary__row order-summary__item-labels">
                         <div className="order-summary__list-name">
                             <Text size="small">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'name')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'name')}
                             </Text>
                         </div>
                         <div className="order-summary__list-quantity-price">
                             <Text size="small">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'quantityAndPrice')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'quantityAndPrice')}
                             </Text>
                         </div>
                         <div className="order-summary__list-total">
                             <Text size="small">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'total')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'total')}
                             </Text>
                         </div>
                     </div>
@@ -95,18 +89,12 @@ class OrderSummary extends React.Component {
                                     </Text>
                                     &nbsp;x&nbsp;
                                     <Text>
-                                        <FormattedNumber
-                                            value={product.details.pricing.retail}
-                                            style="currency"
-                                            currency={product.details.pricing.currency} />
+                                      {product.details.pricing.retail}
                                     </Text>
                                 </div>
                                 <div className="order-summary__list-total">
                                     <Text>
-                                        <FormattedNumber
-                                            value={product.quantity * product.details.pricing.retail}
-                                            style="currency"
-                                            currency={product.details.pricing.currency} />
+                                    {product.quantity * product.details.pricing.retail}
                                     </Text>
                                 </div>
                             </div>
@@ -118,35 +106,25 @@ class OrderSummary extends React.Component {
                     <div className="order-summary__row">
                         <div className="order-summary__totals-label">
                             <Text>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'subTotal')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'subTotal')}
                             </Text>
                         </div>
                         <div className="order-summary__totals-value">
                             <Text>
-                                <FormattedNumber
-                                    value={this.props.checkout.subTotal}
-                                    style="currency"
-                                    currency={this.props.checkout.currency} />
+                              ${this.props.checkout.subTotal}
                             </Text>
                         </div>
                     </div>
                     <div className="order-summary__row">
                         <div className="order-summary__totals-label">
                             <Text>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'shipping')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'shipping')}
                             </Text>
                         </div>
                         <div className="order-summary__totals-value">
                             {this.props.checkout.hasOwnProperty('shippingCost') ?
                                 <Text>
-                                    <FormattedNumber
-                                        value={this.props.checkout.shippingCost}
-                                        style="currency"
-                                        currency={this.props.checkout.currency} />
+                                  {this.props.checkout.shippingCost}
                                 </Text>
                                 :
                                 <Text>-</Text>
@@ -156,17 +134,12 @@ class OrderSummary extends React.Component {
                     <div className="order-summary__row">
                         <div className="order-summary__totals-label">
                             <Text weight="bold">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'total')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'total')}
                             </Text>
                         </div>
                         <div className="order-summary__totals-value">
                             <Text weight="bold">
-                                <FormattedNumber
-                                    value={this.props.checkout.total}
-                                    style="currency"
-                                    currency={this.props.checkout.currency} />
+                              ${this.props.checkout.total}
                             </Text>
                         </div>
                     </div>

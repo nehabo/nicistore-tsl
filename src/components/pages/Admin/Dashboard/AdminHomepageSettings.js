@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 import {move as arrayMove} from '../../../../utils/arrays';
 
@@ -134,8 +134,7 @@ class AdminHomepageSettings extends React.Component {
                 <div className="admin-homepage-settings__ordering-block">
                     <div className="admin-homepage-settings__ordering-label">
                         <FormLabel>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'orderBanners')}
-                                              locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'orderBanners')}
                         </FormLabel>
                     </div>
                     <div className="admin-homepage-settings__ordering">
@@ -154,9 +153,7 @@ class AdminHomepageSettings extends React.Component {
                                     type="primary"
                                     onClick={this.handleBannerUpdateClick}
                                     loading={this.state.loading}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'update')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'update')}
                             </Button>
                         </div>
                     </div>
@@ -164,8 +161,7 @@ class AdminHomepageSettings extends React.Component {
                 <div className="admin-homepage-settings__ordering-block">
                     <div className="admin-homepage-settings__ordering-label">
                         <FormLabel>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'homepageFeaturedCollections')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'homepageFeaturedCollections')}
                         </FormLabel>
                     </div>
                     <div className="admin-homepage-settings__ordering">
@@ -184,9 +180,7 @@ class AdminHomepageSettings extends React.Component {
                                     type="primary"
                                     onClick={this.handleFeaturedCollectionsUpdateClick}
                                     disabled={this.state.featuredUpdate.loading}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'update')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'update')}
                             </Button>
                         </div>
                     </div>

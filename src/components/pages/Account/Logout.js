@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import AccountStore from '../../../stores/Account/AccountStore';
@@ -80,9 +80,7 @@ class Logout extends React.Component {
                 <div className="logout__container">
                     <div className="logout__header">
                         <Text size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'header')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'header')}
                         </Text>
                     </div>
                     <div className="logout__spinner">

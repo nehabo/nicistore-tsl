@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 import {slugify} from '../../../utils/strings';
 
@@ -67,9 +67,7 @@ class ProductList extends React.Component {
                                 return (
                                     <div key={idx} className="product-list__filter">
                                         <TreeMenu links={links}>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(item.name)}
-                                                locales={intlStore.getCurrentLocale()} />
+                                          {intlStore.getMessage(item.name)}
                                         </TreeMenu>
                                     </div>
                                 );
@@ -116,9 +114,8 @@ class ProductList extends React.Component {
                             :
                             <div className="product-list__no-results">
                                 <Text size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'noResults')}
-                                        locales={intlStore.getCurrentLocale()} /> :(
+                                    {intlStore.getMessage(intlData, 'noResults')}
+                                         :(
                                 </Text>
                             </div>
                         }

@@ -4,7 +4,7 @@
 import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -159,9 +159,7 @@ class AdminProducts extends React.Component {
                         return (
                             <div key={idx} className="admin-products__label">
                                 <Label>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, section)}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, section)}
                                 </Label>
                             </div>
                         );
@@ -171,24 +169,12 @@ class AdminProducts extends React.Component {
         };
 
         let headings = [
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'skuHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'nameHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'stockHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'imagesHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'sectionsHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'enabledHeading')}
-                locales={intlStore.getCurrentLocale()} />
+                intlStore.getMessage(intlData, 'skuHeading'),
+                intlStore.getMessage(intlData, 'nameHeading'),
+                intlStore.getMessage(intlData, 'stockHeading'),
+                intlStore.getMessage(intlData, 'imagesHeading'),
+                intlStore.getMessage(intlData, 'sectionsHeading'),
+                intlStore.getMessage(intlData, 'enabledHeading'),
         ];
 
         let rows = this.state.products.map(function (product) {
@@ -198,9 +184,7 @@ class AdminProducts extends React.Component {
                     <Text size="medium">{product.sku}</Text>,
                     <span className="admin-products__link">
                         <Link to="adm-product-edit" params={_.assign({productId: product.id}, routeParams)}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(product.name)}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(product.name)}
                         </Link>
                     </span>,
                     <StatusIndicator status={(product.stock > 0) ? 'default' : 'error'} />,
@@ -222,24 +206,18 @@ class AdminProducts extends React.Component {
                 <div className="admin-products__header">
                     <div className="admin-products__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     <div className="admin-products__toolbar">
                         <div className="admin-products__toolbar-button">
                             <Button type="default" onClick={this.handleUploadClick}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'upload')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'upload')}
                             </Button>
                         </div>
                         <div className="admin-products__toolbar-button">
                             <Button type="primary" onClick={this.handleNewProductClick}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'new')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'new')}
                             </Button>
                         </div>
                     </div>
@@ -262,8 +240,7 @@ class AdminProducts extends React.Component {
                 {!this.state.loading && this.state.products.length === 0 ?
                     <div className="admin-products__no-results">
                         <Text size="small">
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'noResults')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'noResults')}
                         </Text>
                     </div>
                     :

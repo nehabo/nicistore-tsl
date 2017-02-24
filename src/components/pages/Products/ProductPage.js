@@ -5,7 +5,7 @@ import React from 'react';
 import _ from 'lodash';
 import async from 'async';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 
 import {slugify} from '../../../utils/strings';
 
@@ -191,16 +191,12 @@ class ProductPage extends React.Component {
         // Breadcrumbs
         let breadcrumbs = [
             {
-                name: <FormattedMessage
-                          message={intlStore.getMessage(intlData, 'homepage')}
-                          locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'homepage'),
                 to: 'homepage',
                 params: routeParams
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'productsList')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'productsList'),
                 to: 'products',
                 params: routeParams
             }
@@ -210,9 +206,7 @@ class ProductPage extends React.Component {
             let collection = this.context.getStore(CollectionsStore).getCollection(collectionId);
             if (collection) {
                 breadcrumbs.push({
-                    name: <FormattedMessage
-                              message={intlStore.getMessage(collection.name)}
-                              locales={intlStore.getCurrentLocale()} />,
+                    name: intlStore.getMessage(collection.name),
                     to: 'collection-slug',
                     params: _.assign({
                         collectionId: collection.id,
@@ -247,9 +241,7 @@ class ProductPage extends React.Component {
                     <div>
                         <div className="product-page__header">
                             <Breadcrumbs links={breadcrumbs} weight="bold">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(this.state.product.name)}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(this.state.product.name)}
                             </Breadcrumbs>
                         </div>
 
@@ -271,9 +263,7 @@ class ProductPage extends React.Component {
                             <div className="product-page__details">
                                 <div className="product-page__name" itemProp="name">
                                     <Heading size="large">
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(this.state.product.name)}
-                                            locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(this.state.product.name)}
                                     </Heading>
                                 </div>
                                 {this.state.product.pricing ?
@@ -286,10 +276,7 @@ class ProductPage extends React.Component {
                                         </div>
                                         <div>
                                             <Text size="medium" weight="bold">
-                                                <FormattedNumber
-                                                    value={this.state.product.pricing.retail}
-                                                    style="currency"
-                                                    currency={this.state.product.pricing.currency} />
+                                              {this.state.product.pricing.retail}
                                             </Text>
                                         </div>
                                     </div>
@@ -311,15 +298,11 @@ class ProductPage extends React.Component {
                                             <Button type="primary"
                                                     onClick={this.handleAddToCartClick}
                                                     disabled={this.state.quantity <= 0 || this.state.cartLoading}>
-                                                <FormattedMessage
-                                                    message={intlStore.getMessage(intlData, 'addToCart')}
-                                                    locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'addToCart')}
                                             </Button>
                                             :
                                             <Button type="primary" disabled={true}>
-                                                <FormattedMessage
-                                                    message={intlStore.getMessage(intlData, 'outOfStock')}
-                                                    locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'outOfStock')}
                                             </Button>
                                         }
                                     </div>
@@ -328,16 +311,12 @@ class ProductPage extends React.Component {
                                 <div className="product-page__description">
                                     <div className="product-page__description-label">
                                         <Heading size="medium">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'descriptionLabel')}
-                                                locales={intlStore.getCurrentLocale()} />
+                                          {intlStore.getMessage(intlData, 'descriptionLabel')}
                                         </Heading>
                                     </div>
                                     <div className="product-page__description-content" itemProp="description">
                                         <Text size="small">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(this.state.product.description)}
-                                                locales={intlStore.getCurrentLocale()} />
+                                          {intlStore.getMessage(this.state.product.description)}
                                         </Text>
                                     </div>
                                 </div>
@@ -356,9 +335,7 @@ class ProductPage extends React.Component {
                                 :
                                 <div className="product-page__suggestions">
                                     <ProductSuggestions products={this.state.suggestions} loading={this.state.suggestionsLoading}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'crossSell')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'crossSell')}
                                     </ProductSuggestions>
                                 </div>
                             }

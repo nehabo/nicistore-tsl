@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -48,16 +48,8 @@ class CheckoutShippingInformation extends React.Component {
         let intlStore = this.context.getStore(IntlStore);
 
         let shippingOptions = (this.props.shippingOptions) ? this.props.shippingOptions.map(function (option) {
-            let name = (
-                <FormattedMessage message={intlStore.getMessage(option.name)}
-                                  locales={intlStore.getCurrentLocale()} />
-            );
-            let price = (
-                <FormattedNumber
-                    value={option.price}
-                    style="currency"
-                    currency={option.currency} />
-            );
+            let name = (intlStore.getMessage(option.name));
+            let price = option.price;
             return {
                 value: option.value,
                 name: name,

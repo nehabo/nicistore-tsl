@@ -4,7 +4,7 @@
 import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -109,18 +109,10 @@ class AdminCollections extends React.Component {
         let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
 
         let headings = [
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'nameHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'parentHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'tagsHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'enabledHeading')}
-                locales={intlStore.getCurrentLocale()} />
+            intlStore.getMessage(intlData, 'nameHeading'),
+            intlStore.getMessage(intlData, 'parentHeading'),
+            intlStore.getMessage(intlData, 'tagsHeading'),
+            intlStore.getMessage(intlData, 'enabledHeading'),
         ];
 
         let rows = this.state.collections.map((collection) => {
@@ -128,9 +120,7 @@ class AdminCollections extends React.Component {
                 data: [
                     <span className="admin-collections__link">
                         <Link to="adm-collection-edit" params={_.assign({collectionId: collection.id}, routeParams)}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(collection.name)}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(collection.name)}
                         </Link>
                     </span>,
                     <Text size="medium">
@@ -148,9 +138,7 @@ class AdminCollections extends React.Component {
                                 return (
                                     <div key={idx} className="admin-collections__label">
                                         <Label>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, section)}
-                                                locales={intlStore.getCurrentLocale()} />
+                                          {intlStore.getMessage(intlData, section)}
                                         </Label>
                                     </div>
                                 );
@@ -186,17 +174,13 @@ class AdminCollections extends React.Component {
                 <div className="admin-collections__header">
                     <div className="admin-collections__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     <div className="admin-collections__toolbar">
                         <div className="admin-collections__add-button">
                             <Button type="primary" onClick={this.handleNewCollectionClick}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'new')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'new')}
                             </Button>
                         </div>
                     </div>

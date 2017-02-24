@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 import config from '../../../config';
 import {isValidEmail} from '../../../utils/strings';
@@ -93,8 +93,7 @@ class NewsletterSubscription extends React.Component {
             <div className="newsletter-subscription">
                 <div className="newsletter-subscription__description">
                     <Text size="small">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'newsletterDescription')}
-                                          locales={intlStore.getCurrentLocale()} />
+                        {intlStore.getMessage(intlData, 'newsletterDescription')}
                     </Text>
                 </div>
                 <div className="newsletter-subscription__content">

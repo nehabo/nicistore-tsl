@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -35,7 +35,7 @@ class ProductsSortingSelect extends React.Component {
     }
 
     //*** Template ***//
-    
+
     render() {
 
         let intlStore = this.context.getStore(IntlStore);
@@ -55,49 +55,36 @@ class ProductsSortingSelect extends React.Component {
              value: 'best-selling'
              },*/
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortAlphabetically')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortAlphabetically'),
                 value: 'alphabetically'
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortAlphabeticallyReverse')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortAlphabeticallyReverse'),
                 value: '-alphabetically'
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortPrice')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortPrice'),
                 value: 'price'
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortPriceReverse')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortPriceReverse'),
                 value: '-price'
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortRecent')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortRecent'),
                 value: '-date'
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'sortOldest')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'sortOldest'),
                 value: 'date'
             }
         ];
-        
+
         return (
             <div className="products-sorting-select">
                 <div className="products-sorting-select__label">
                     <Text size="small" weight="bold">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'sortLabel')}
-                                          locales={intlStore.getCurrentLocale()} />
+                      {intlStore.getMessage(intlData, 'sortLabel')}
                     </Text>
                 </div>
                 <div className="products-sorting-select__options">

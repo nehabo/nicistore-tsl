@@ -52,12 +52,8 @@ class AccountOrders extends React.Component {
 
         // Order list table headings
         let headings = [
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'dateHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'statusHeading')}
-                locales={intlStore.getCurrentLocale()} />,
+          intlStore.getMessage(intlData, 'dateHeading'),
+          intlStore.getMessage(intlData, 'statusHeading'),
             ''
         ];
 
@@ -84,9 +80,7 @@ class AccountOrders extends React.Component {
             <div className="account-orders">
                 <div className="account-orders__title">
                     <Heading size="medium">
-                        <FormattedMessage
-                            message={intlStore.getMessage(intlData, 'title')}
-                            locales={intlStore.getCurrentLocale()} />
+                      {intlStore.getMessage(intlData, 'title')}
                     </Heading>
                 </div>
                 {this.props.loading ?
@@ -98,8 +92,7 @@ class AccountOrders extends React.Component {
                         {!this.props.lastOrder ?
                             <div className="account-orders__no-order">
                                 <Text size="small">
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'noOrders')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'noOrders')}
                                 </Text>
                             </div>
                             :
@@ -119,8 +112,7 @@ class AccountOrders extends React.Component {
                                     <div className="account-orders__last-order-action-button">
                                         <Link to="account-order-details" params={_.assign({orderId: this.props.lastOrder.id}, routeParams)}>
                                             <Button type="default" fontSize="small">
-                                                <FormattedMessage message={intlStore.getMessage(intlData, 'viewDetails')}
-                                                                  locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'viewDetails')}
                                             </Button>
                                         </Link>
                                     </div>
@@ -131,8 +123,7 @@ class AccountOrders extends React.Component {
                             <div className="account-orders__list">
                                 <div className="account-orders__list-title">
                                     <Heading size="small">
-                                        <FormattedMessage message={intlStore.getMessage(intlData, 'history')}
-                                                          locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'history')}
                                     </Heading>
                                 </div>
                                 <div className="account-orders__list-content">

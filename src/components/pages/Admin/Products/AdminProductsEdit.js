@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -259,9 +259,7 @@ class AdminProductsEdit extends React.Component {
                 <div className="admin-products-edit__header">
                     <div className="admin-products-edit__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     {this.state.product ?
@@ -269,17 +267,13 @@ class AdminProductsEdit extends React.Component {
                             <div className="admin-products-edit__toolbar-item">
                                 <Link to="adm-products" params={routeParams}>
                                     <Button type="default" disabled={this.state.loading}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'back')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'back')}
                                     </Button>
                                 </Link>
                             </div>
                             <div className="admin-products-edit__toolbar-item">
                                 <Button type="primary" onClick={this.handleSaveClick} disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'save')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'save')}
                                 </Button>
                             </div>
                         </div>
@@ -333,9 +327,7 @@ class AdminProductsEdit extends React.Component {
                                 </InlineItems>
                             </div>
                             <div className="admin-products-edit__form-item">
-                                <InlineItems label={<FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'sections')}
-                                    locales={intlStore.getCurrentLocale()} />}>
+                                <InlineItems label={intlStore.getMessage(intlData, 'sections')}>
                                     <Checkbox label={intlStore.getMessage(intlData, 'homepage')}
                                               onChange={this.handleSectionChange.bind(null, 'homepage')}
                                               checked={this.state.product.tags && this.state.product.tags.indexOf('homepage') !== -1} />
@@ -368,9 +360,7 @@ class AdminProductsEdit extends React.Component {
                                           error={fieldError('description.pt')} />
                             </div>
                             <div className="admin-products-edit__form-item">
-                                <InlineItems label={<FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'pricing')}
-                                    locales={intlStore.getCurrentLocale()} />}>
+                                <InlineItems label={intlStore.getMessage(intlData, 'pricing')}>
                                     <InputField label={intlStore.getMessage(intlData, 'currency')}
                                                 labelSize="small" labelWeight="normal"
                                                 value={this.state.product.pricing.currency}
@@ -403,16 +393,14 @@ class AdminProductsEdit extends React.Component {
                                 <CollectionPicker collections={this.state.categories}
                                                   checked={this.state.product.collections}
                                                   onChange={this.handleCollectionPickerChange}>
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'categories')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'categories')}
                                 </CollectionPicker>
                             </div>
                             <div className="admin-products-edit__form-item">
                                 <CollectionPicker collections={this.state.collections}
                                                   checked={this.state.product.collections}
                                                   onChange={this.handleCollectionPickerChange}>
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'collections')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'collections')}
                                 </CollectionPicker>
                             </div>
                         </div>

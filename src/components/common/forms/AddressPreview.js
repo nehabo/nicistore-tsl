@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -50,9 +50,8 @@ class AddressPreview extends React.Component {
                 {this.props.address.vatin ?
                     <div className="address-preview__vatin">
                         <Text>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'vatLabel')}
-                                locales={intlStore.getCurrentLocale()} />: {this.props.address.vatin}
+                          {intlStore.getMessage(intlData, 'vatLabel')}
+                          : {this.props.address.vatin}
                         </Text>
                     </div>
                     :
@@ -88,9 +87,7 @@ class AddressPreview extends React.Component {
                     {this.props.onEditClick ?
                         <div className="address-preview__edit" onClick={this.props.onEditClick}>
                             <Text weight="bold">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'edit')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'edit')}
                             </Text>
                         </div>
                         :
@@ -99,9 +96,7 @@ class AddressPreview extends React.Component {
                     {this.props.onDeleteClick ?
                         <div className="address-preview__delete" onClick={this.props.onDeleteClick}>
                             <Text>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'delete')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              message={intlStore.getMessage(intlData, 'delete')}
                             </Text>
                         </div>
                         :

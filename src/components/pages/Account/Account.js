@@ -4,7 +4,7 @@
 import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import AccountStore from '../../../stores/Account/AccountStore';
@@ -262,18 +262,14 @@ class Account extends React.Component {
                                 <Button type="default"
                                         onClick={this.handleModalCloseClick}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'cancel')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'cancel')}
                                 </Button>
                             </div>
                             <div className="account__modal-form-action-item">
                                 <Button type="primary"
                                         onClick={this.handleModalSubmitClick.bind(null, 'name')}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'update')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'update')}
                                 </Button>
                             </div>
                         </div>
@@ -306,17 +302,14 @@ class Account extends React.Component {
                                 <Button type="default"
                                         onClick={this.handleModalCloseClick}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'cancel')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'cancel')}
                                 </Button>
                             </div>
                             <div className="account__modal-form-action-item">
                                 <Button type="primary"
                                         onClick={this.handleModalSubmitClick.bind(null, 'password')}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'update')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'update')}
                                 </Button>
                             </div>
                         </div>
@@ -386,9 +379,7 @@ class Account extends React.Component {
                                 <Button type="default"
                                         onClick={this.handleModalCloseClick}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'cancel')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'cancel')}
                                 </Button>
                             </div>
                             <div className="account__modal-form-action-item">
@@ -406,27 +397,14 @@ class Account extends React.Component {
                     <Modal title={intlStore.getMessage(intlData, 'deleteAddress')}
                            onCloseClick={this.handleModalCloseClick}>
                         <div className="account__modal-form-item">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'deleteAddressConfirm')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'deleteAddressConfirm')}
                         </div>
                         <div className="account__modal-form-actions">
                             <div className="account__modal-form-action-item">
                                 <Button type="default"
                                         onClick={this.handleModalCloseClick}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'cancel')}
-                                        locales={intlStore.getCurrentLocale()} />
-                                </Button>
-                            </div>
-                            <div className="account__modal-form-action-item">
-                                <Button type="primary"
-                                        onClick={this.handleModalSubmitClick.bind(null, 'deleteAddress', this.state.address)}
-                                        disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'delete')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'delete')}
                                 </Button>
                             </div>
                         </div>
@@ -446,9 +424,7 @@ class Account extends React.Component {
 
                 <div className="account__title">
                     <Heading size="large">
-                        <FormattedMessage
-                            message={intlStore.getMessage(intlData, 'title')}
-                            locales={intlStore.getCurrentLocale()} />
+                      {intlStore.getMessage(intlData, 'title')}
                     </Heading>
                 </div>
                 <div className="account__content">
@@ -456,17 +432,13 @@ class Account extends React.Component {
                         <div className="account__details">
                             <div className="account__details-title">
                                 <Heading size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'details')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'details')}
                                 </Heading>
                             </div>
                             <div className="account__details-item">
                                 <div className="account__details-item-label">
                                     <FormLabel>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'name')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'name')}
                                     </FormLabel>
                                 </div>
                                 <div className="account__details-item-value">
@@ -476,9 +448,7 @@ class Account extends React.Component {
                             <div className="account__details-item">
                                 <div className="account__details-item-label">
                                     <FormLabel>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'email')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'email')}
                                     </FormLabel>
                                 </div>
                                 <div className="account__details-item-value">
@@ -491,18 +461,14 @@ class Account extends React.Component {
                                         fontSize="small"
                                         onClick={this.handleOpenModalClick.bind(null, 'editDetails')}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'editDetails')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'editDetails')}
                                 </Button>
                                 <Button className="account__details-action-button"
                                         type="default"
                                         fontSize="small"
                                         onClick={this.handleOpenModalClick.bind(null, 'changePassword')}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'changePassword')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'changePassword')}
                                 </Button>
                             </div>
                         </div>
@@ -510,9 +476,7 @@ class Account extends React.Component {
                         <div className="account__addresses">
                             <div className="account__addresses-title">
                                 <Heading size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'addresses')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'addresses')}
                                 </Heading>
                             </div>
                             <div className="account__addresses-actions">
@@ -521,9 +485,7 @@ class Account extends React.Component {
                                         fontSize="small"
                                         onClick={this.handleOpenModalClick.bind(null, 'newAddress', {})}
                                         disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'newAddress')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'newAddress')}
                                 </Button>
                             </div>
                             <div className="account__addresses-list">
@@ -543,9 +505,8 @@ class Account extends React.Component {
                                             {address.vatin ?
                                                 <div className="account__address-vatin">
                                                     <Text>
-                                                        <FormattedMessage
-                                                            message={intlStore.getMessage(intlData, 'vatLabel')}
-                                                            locales={intlStore.getCurrentLocale()} />: {address.vatin}
+                                                        {intlStore.getMessage(intlData, 'vatLabel')}
+                                                        : {address.vatin}
                                                     </Text>
                                                 </div>
                                                 :
@@ -580,16 +541,12 @@ class Account extends React.Component {
                                             <div className="account__address-actions">
                                                 <div className="account__address-edit" onClick={this.handleOpenModalClick.bind(null, 'editAddress', address)}>
                                                     <Text weight="bold">
-                                                        <FormattedMessage
-                                                            message={intlStore.getMessage(intlData, 'edit')}
-                                                            locales={intlStore.getCurrentLocale()} />
+                                                      {intlStore.getMessage(intlData, 'edit')}
                                                     </Text>
                                                 </div>
                                                 <div className="account__address-delete" onClick={this.handleOpenModalClick.bind(null, 'deleteAddress', address)}>
                                                     <Text>
-                                                        <FormattedMessage
-                                                            message={intlStore.getMessage(intlData, 'delete')}
-                                                            locales={intlStore.getCurrentLocale()} />
+                                                        {intlStore.getMessage(intlData, 'delete')}
                                                     </Text>
                                                 </div>
                                             </div>

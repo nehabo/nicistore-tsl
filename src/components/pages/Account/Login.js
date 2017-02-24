@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -165,7 +165,7 @@ class Login extends React.Component {
     handleSubmitClick = () => {
 
         let intlStore = this.context.getStore(IntlStore);
-        
+
         this.setState({errorMessage: null});
         this.setState({fieldErrors: {}});
         let fieldErrors = {};
@@ -218,27 +218,21 @@ class Login extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'mergeCartsTitle')}>
                         <div className="login__modal-form-item">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'mergeCartsConfirm')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'mergeCartsConfirm')}
                         </div>
                         <div className="login__modal-form-actions">
                             <div className="login__modal-form-action-item">
                                 <Button type="default"
                                         onClick={this.handleMergeCartsModalNoClick}
                                         disabled={this.isLoading()}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'no')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'no')}
                                 </Button>
                             </div>
                             <div className="login__modal-form-action-item">
                                 <Button type="primary"
                                         onClick={this.handleMergeCartsModalYesClick}
                                         disabled={this.isLoading()}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'yes')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'yes')}
                                 </Button>
                             </div>
                         </div>
@@ -256,9 +250,7 @@ class Login extends React.Component {
                 <div className="login__container">
                     <div className="login__header">
                         <Heading>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'login')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'login')}
                         </Heading>
                     </div>
                     {this.state.errorMessage ?
@@ -286,9 +278,7 @@ class Login extends React.Component {
                         </div>
                         <div className="login__form-actions">
                             <Button type="primary" onClick={this.handleSubmitClick} disabled={this.isLoading()}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'submit')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'submit')}
                             </Button>
                         </div>
                         <div className="login__form-reset">

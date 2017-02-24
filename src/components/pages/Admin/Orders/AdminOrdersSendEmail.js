@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../stores/Application/IntlStore';
@@ -142,16 +142,12 @@ class AdminOrdersSendEmail extends React.Component {
                 <div className="admin-orders-send-email__actions">
                     <div className="admin-orders-send-email__button">
                         <Button type="default" onClick={this.props.onCancelClick} disabled={this.props.loading}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'cancel')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'cancel')}
                         </Button>
                     </div>
                     <div className="admin-orders-send-email__button">
                         <Button type="primary" onClick={this.handleSubmitClick} disabled={this.props.loading}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'submit')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'submit')}
                         </Button>
                     </div>
                 </div>

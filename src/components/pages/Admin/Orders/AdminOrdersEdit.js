@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -181,8 +181,7 @@ class AdminOrdersEdit extends React.Component {
                 <div className="admin-orders-edit__header">
                     <div className="admin-orders-edit__title">
                         <Heading size="medium">
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'title')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     {this.state.order ?
@@ -190,22 +189,19 @@ class AdminOrdersEdit extends React.Component {
                             <div className="admin-orders-edit__toolbar-item">
                                 <Link to="adm-orders" params={routeParams}>
                                     <Button type="default" disabled={this.state.loading || this.state.saving}>
-                                        <FormattedMessage message={intlStore.getMessage(intlData, 'back')}
-                                                          locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'back')}
                                     </Button>
                                 </Link>
                             </div>
                             <div className="admin-orders-edit__toolbar-item">
                                 <Button type="primary" onClick={this.handleSendEmailClick} disabled={this.state.loading || this.state.saving}>
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'sendEmail')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'sendEmail')}
                                 </Button>
                             </div>
                             {['created', 'pendingPayment', 'paid', 'processing', 'ready'].indexOf(this.state.order.status) !== -1 ?
                                 <div className="admin-orders-edit__toolbar-item">
                                     <Button type="primary" onClick={this.handleUpdateStatusClick} disabled={this.state.loading || this.state.saving}>
-                                        <FormattedMessage message={intlStore.getMessage(intlData, 'updateStatus')}
-                                                          locales={intlStore.getCurrentLocale()} />
+                                      {intlStore.getMessage(intlData, 'updateStatus')}
                                     </Button>
                                 </div>
                                 :

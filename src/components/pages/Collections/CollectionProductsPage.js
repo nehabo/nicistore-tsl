@@ -4,7 +4,7 @@
 import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 import {slugify} from '../../../utils/strings';
 
@@ -117,23 +117,17 @@ class CollectionProductsPage extends React.Component {
             // Breadcrumbs
             var breadcrumbs = [
                 {
-                    name: <FormattedMessage
-                              message={intlStore.getMessage(intlData, 'homepage')}
-                              locales={intlStore.getCurrentLocale()} />,
+                    name: intlStore.getMessage(intlData, 'homepage'),
                     to: 'homepage',
                     params: routeParams
                 },
                 {
-                    name: <FormattedMessage
-                        message={intlStore.getMessage(intlData, 'productsList')}
-                        locales={intlStore.getCurrentLocale()} />,
+                    name: intlStore.getMessage(intlData, 'productsList'),
                     to: 'products',
                     params: routeParams
                 },
                 {
-                    name: <FormattedMessage
-                              message={intlStore.getMessage(collection.name)}
-                              locales={intlStore.getCurrentLocale()} />
+                    name: intlStore.getMessage(collection.name),
                 }
             ];
 
@@ -161,11 +155,7 @@ class CollectionProductsPage extends React.Component {
                             <div className="collection-products-page__breadcrumbs">
                                 <Breadcrumbs links={breadcrumbs}>
                                     {this.state.totalPages > 0 ?
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'pagination')}
-                                            locales={intlStore.getCurrentLocale()}
-                                            currentPage={this.state.currentPage}
-                                            totalPages={this.state.totalPages} />
+                                      intlStore.getMessage(intlData, 'pagination')
                                         :
                                         null
                                     }
@@ -177,8 +167,7 @@ class CollectionProductsPage extends React.Component {
                         </div>
 
                         <div className="collection-products-page__products">
-                            <ProductList title={<FormattedMessage message={intlStore.getMessage(collection.name)}
-                                                                  locales={intlStore.getCurrentLocale()} />}
+                            <ProductList title={intlStore.getMessage(collection.name)}
                                          filters={filters}
                                          collection={collection}
                                          products={this.state.products}

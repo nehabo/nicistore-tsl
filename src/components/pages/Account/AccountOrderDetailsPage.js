@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -35,9 +35,9 @@ class AccountOrderDetailsPage extends React.Component {
         order: undefined,
         loading: true
     };
-    
+
     //*** Component Lifecycle ***//
-    
+
     componentDidMount() {
 
         // Component styles
@@ -62,8 +62,7 @@ class AccountOrderDetailsPage extends React.Component {
             <div className="account-order-details-page">
                 <div className="account-order-details-page__title">
                     <Heading size="medium">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'title')}
-                                          locales={intlStore.getCurrentLocale()} />
+                      {intlStore.getMessage(intlData, 'title')}
                     </Heading>
                 </div>
                 {this.state.loading ?

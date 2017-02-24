@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -98,8 +98,7 @@ class CommentBox extends React.Component {
                 return (
                     <div className="comment-box__no-comments">
                         <Text>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'noComments')}
-                                              locales={intlStore.getCurrentLocale()} />!
+                          {intlStore.getMessage(intlData, 'noComments')}!
                         </Text>
                     </div>
                 );
@@ -109,8 +108,7 @@ class CommentBox extends React.Component {
         let loginTranslation = (
             <Link className="comment-box__link" to="login" params={routeParams}>
                 <Text>
-                    <FormattedMessage message={intlStore.getMessage(intlData, 'login')}
-                                      locales={intlStore.getCurrentLocale()} />
+                  {intlStore.getMessage(intlData, 'login')}
                 </Text>
             </Link>
         );
@@ -118,8 +116,7 @@ class CommentBox extends React.Component {
         let registerTranslation = (
             <Link className="comment-box__link" to="register" params={routeParams}>
                 <Text>
-                    <FormattedMessage message={intlStore.getMessage(intlData, 'register')}
-                                      locales={intlStore.getCurrentLocale()} />
+                  {intlStore.getMessage(intlData, 'register')}
                 </Text>
             </Link>
         );
@@ -131,9 +128,7 @@ class CommentBox extends React.Component {
             <div className="comment-box">
                 <div className="comment-box__comments" itemScope itemType="http://schema.org/UserComments">
                     <Heading size="medium">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'comments')}
-                                          locales={intlStore.getCurrentLocale()}
-                                          total={(this.props.comments) ? this.props.comments.length : 0} />
+                      {intlStore.getMessage(intlData, 'comments')}
                     </Heading>
                     {comments()}
                 </div>
@@ -149,8 +144,7 @@ class CommentBox extends React.Component {
                                         disabled={this.props.disabled} loading={this.props.loading}>
                                     <i className="fa fa-comment-o" aria-hidden="true" />
                                     &nbsp;
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'submit')}
-                                                      locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'submit')}
                                 </Button>
                             </div>
                         </div>
@@ -158,10 +152,9 @@ class CommentBox extends React.Component {
                     :
                     <div className="comment-box__no-user">
                         <Text>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'noUser')}
-                                              locales={intlStore.getCurrentLocale()}
-                                              login={loginTranslation}
-                                              register={registerTranslation} />
+                            {intlStore.getMessage(intlData, 'noUser')}
+                            {loginTranslation}
+                            {registerTranslation}
                         </Text>
                     </div>
                 }

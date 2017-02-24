@@ -2,17 +2,17 @@
  * Imports
  */
 import React from 'react';
-import connectToStores from 'fluxible-addons-react/connectToStores';
-import {RouteHandler} from 'react-router';
+import { connectToStores } from 'fluxible-addons-react';
+import { RouteHandler } from 'react-router';
 
-import {slugify} from '../../../utils/strings';
+import { slugify } from '../../../utils/strings';
 
 // Flux
 import AccountStore from '../../../stores/Account/AccountStore';
 import ApplicationStore from '../../../stores/Application/ApplicationStore';
 import CollectionsStore from '../../../stores/Collections/CollectionsStore';
 import DrawerStore from '../../../stores/Application/DrawerStore';
-// import IntlStore from '../../../stores/Application/IntlStore';
+import IntlStore from '../../../stores/Application/IntlStore';
 import NotificationQueueStore from '../../../stores/Application/NotificationQueueStore';
 import PageLoadingStore from '../../../stores/Application/PageLoadingStore';
 
@@ -83,7 +83,7 @@ class Application extends React.Component {
 
     render() {
 
-        // let intlStore = this.context.getStore(IntlStore);
+        let intlStore = this.context.getStore(IntlStore);
 
         // Main navigation menu items
         let collections = this.state.navCollections.map(function (collection) {

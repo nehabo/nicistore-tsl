@@ -4,7 +4,7 @@
 import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import config from '../../../../config';
@@ -184,9 +184,7 @@ class AdminContentsEdit extends React.Component {
                 } else {
                     return (
                         <Text className="admin-contents-edit__unsupported-type">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'unsupportedType')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'unsupportedType')}
                         </Text>
                     );
                 }
@@ -202,9 +200,7 @@ class AdminContentsEdit extends React.Component {
                     <div className="admin-contents-edit__title">
                         <div className="admin-contents-edit__title-text">
                             <Heading size="medium">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'title')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'title')}
                             </Heading>
                         </div>
                         {this.state.content ?
@@ -223,17 +219,13 @@ class AdminContentsEdit extends React.Component {
                             <div className="admin-contents-edit__toolbar-item">
                                 <Link to="adm-contents" params={routeParams}>
                                     <Button type="default" disabled={this.state.loading}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'back')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'back')}
                                     </Button>
                                 </Link>
                             </div>
                             <div className="admin-contents-edit__toolbar-item">
                                 <Button type="primary" onClick={this.handleSaveClick} disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'save')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'save')}
                                 </Button>
                             </div>
                         </div>
@@ -256,9 +248,7 @@ class AdminContentsEdit extends React.Component {
                                     <div className="admin-contents-edit__checkbox-inline">
                                         <div className="admin-contents-edit__checkbox-inline-label">
                                             <FormLabel>
-                                                <FormattedMessage
-                                                    message={intlStore.getMessage(intlData, 'sections')}
-                                                    locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'sections')}
                                             </FormLabel>
                                         </div>
                                         <div className="admin-contents-edit__checkbox-inline-items">
@@ -274,9 +264,7 @@ class AdminContentsEdit extends React.Component {
                                 <div className="admin-contents-edit__form-item">
                                     <InputField label={
                                                     <div>
-                                                        <FormattedMessage
-                                                            message={intlStore.getMessage(intlData, 'name')}
-                                                            locales={intlStore.getCurrentLocale()} />
+                                                          {intlStore.getMessage(intlData, 'name')}
                                                         &nbsp;({this.state.selectedLocale})
                                                     </div>
                                                 }
@@ -294,16 +282,14 @@ class AdminContentsEdit extends React.Component {
                                     <CollectionPicker collections={this.state.categories}
                                                       checked={this.state.content.collections}
                                                       onChange={this.handleCollectionPickerChange}>
-                                        <FormattedMessage message={intlStore.getMessage(intlData, 'categories')}
-                                                          locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'categories')}
                                     </CollectionPicker>
                                 </div>
                                 <div className="admin-contents-edit__form-item">
                                     <CollectionPicker collections={this.state.collections}
                                                       checked={this.state.content.collections}
                                                       onChange={this.handleCollectionPickerChange}>
-                                        <FormattedMessage message={intlStore.getMessage(intlData, 'collections')}
-                                                          locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'collections')}
                                     </CollectionPicker>
                                 </div>
                             </div>

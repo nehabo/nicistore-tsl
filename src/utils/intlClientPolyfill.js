@@ -7,9 +7,9 @@
  * Imports.
  */
 import Debug from 'debug';
-import isIntlLocaleSupported from 'intl-locales-supported';
+// import isIntlLocaleSupported from 'intl-locales-supported';
 
-const debug = Debug('intl');
+// const debug = Debug('intl');
 
 /**
  * Returns a promise which is resolved when Intl has been polyfilled.

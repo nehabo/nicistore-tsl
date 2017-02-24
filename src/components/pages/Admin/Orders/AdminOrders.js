@@ -5,7 +5,7 @@ import React from 'react';
 import _ from 'lodash';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import moment from 'moment';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -83,18 +83,10 @@ class AdminOrders extends React.Component {
 
         // Order list table headings
         let headings = [
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'dateHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'idHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'emailHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'statusHeading')}
-                locales={intlStore.getCurrentLocale()} />
+          intlStore.getMessage(intlData, 'dateHeading'),
+          intlStore.getMessage(intlData, 'idHeading'),
+          intlStore.getMessage(intlData, 'emailHeading'),
+          intlStore.getMessage(intlData, 'statusHeading'),
         ];
 
         // Order list table rows
@@ -130,8 +122,7 @@ class AdminOrders extends React.Component {
                 <div className="admin-orders__header">
                     <div className="admin-orders__title">
                         <Heading size="medium">
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'title')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     <div className="admin-orders__toolbar">
@@ -160,8 +151,7 @@ class AdminOrders extends React.Component {
                 {!this.state.loading && this.state.orders.length === 0 ?
                     <div className="admin-orders__no-results">
                         <Text size="small">
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'noResults')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'noResults')}
                         </Text>
                     </div>
                     :

@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../../stores/Application/IntlStore';
@@ -57,9 +57,7 @@ class AdminContentsArticle extends React.Component {
                     <div className="admin-contents-article__form-item">
                         <InputField label={
                                         <div>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'summary')}
-                                                locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(intlData, 'summary')}
                                             &nbsp;({this.props.selectedLocale})
                                         </div>
                                     }
@@ -73,8 +71,7 @@ class AdminContentsArticle extends React.Component {
                         <MarkdownEditor key={this.props.selectedLocale}
                                         label={
                                             <div>
-                                                <FormattedMessage message={intlStore.getMessage(intlData, 'edit')}
-                                                                  locales={intlStore.getCurrentLocale()} />
+                                                {intlStore.getMessage(intlData, 'edit')}
                                                 &nbsp;({this.props.selectedLocale})
                                             </div>
                                         }
@@ -84,8 +81,7 @@ class AdminContentsArticle extends React.Component {
                     <div className="admin-contents-article__preview">
                         <div className="admin-contents-article__label">
                             <FormLabel>
-                                <FormattedMessage message={intlStore.getMessage(intlData, 'preview')}
-                                                  locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'preview')}
                                 &nbsp;({this.props.selectedLocale})
                             </FormLabel>
                         </div>

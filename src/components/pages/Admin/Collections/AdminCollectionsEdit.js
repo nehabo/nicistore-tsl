@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -207,9 +207,7 @@ class AdminCollectionsEdit extends React.Component {
                 <div className="admin-collections-edit__header">
                     <div className="admin-collections-edit__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     {this.state.collection ?
@@ -217,17 +215,13 @@ class AdminCollectionsEdit extends React.Component {
                             <div className="admin-collections-edit__toolbar-item">
                                 <Link to="adm-collections" params={routeParams}>
                                     <Button type="default" disabled={this.state.loading}>
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(intlData, 'back')}
-                                            locales={intlStore.getCurrentLocale()} />
+                                        {intlStore.getMessage(intlData, 'back')}
                                     </Button>
                                 </Link>
                             </div>
                             <div className="admin-collections-edit__toolbar-item">
                                 <Button type="primary" onClick={this.handleSaveClick} disabled={this.state.loading}>
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'save')}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    {intlStore.getMessage(intlData, 'save')}
                                 </Button>
                             </div>
                         </div>
@@ -256,9 +250,7 @@ class AdminCollectionsEdit extends React.Component {
                                 <div className="admin-collection-edit__checkbox-inline">
                                     <div className="admin-collection-edit__checkbox-inline-label">
                                         <FormLabel>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'sections')}
-                                                locales={intlStore.getCurrentLocale()} />
+                                            {intlStore.getMessage(intlData, 'sections')}
                                         </FormLabel>
                                     </div>
                                     <div className="admin-collection-edit__checkbox-inline-items">
@@ -310,9 +302,7 @@ class AdminCollectionsEdit extends React.Component {
                                       selected={this.state.collection.parentId}
                                       self={this.state.collection.id}
                                       onClick={this.handleParentCollectionChange}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'parent')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                  {intlStore.getMessage(intlData, 'parent')}
                             </TreeMenu>
                         </div>
                     </div>

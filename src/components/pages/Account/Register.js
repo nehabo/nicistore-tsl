@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 // Flux
@@ -139,16 +139,12 @@ class Register extends React.Component {
                     <Modal title={intlStore.getMessage(intlData, 'successModalTitle')}>
                         <div className="register__modal-body">
                             <Text size="medium">
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'successModalBody')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'successModalBody')}
                             </Text>
                         </div>
                         <div className="register__modal-footer">
                             <Button type="primary" onClick={this.handleModalContinueClick}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'successModalContinue')}
-                                    locales={intlStore.getCurrentLocale()} />
+                              {intlStore.getMessage(intlData, 'successModalContinue')}
                             </Button>
                         </div>
                     </Modal>
@@ -163,9 +159,7 @@ class Register extends React.Component {
                 <div className="register__container">
                     <div className="register__header">
                         <Heading>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                     <div className="register__form">
@@ -197,9 +191,7 @@ class Register extends React.Component {
                         </div>
                         <div className="register__form-actions">
                             <Button type="primary" onClick={this.handleSubmitClick} disabled={this.state.loading}>
-                                <FormattedMessage
-                                    message={intlStore.getMessage(intlData, 'submit')}
-                                    locales={intlStore.getCurrentLocale()} />
+                                {intlStore.getMessage(intlData, 'submit')}
                             </Button>
                         </div>
                     </div>

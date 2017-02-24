@@ -28,8 +28,8 @@ import ResetConfirm from './components/pages/Account/ResetConfirm';
 import StoresPage from './components/pages/StaticContent/StoresPage';
 import InfoPage from './components/pages/StaticContent/InfoPage';
 
-// import ArticlesListingPage from './components/pages/Articles/ArticlesListingPage';
-// import ArticlePage from './components/pages/Articles/ArticlePage';
+import ArticlesListingPage from './components/pages/Articles/ArticlesListingPage';
+import ArticlePage from './components/pages/Articles/ArticlePage';
 
 import CorporatePage from './components/pages/Corporate/CorporatePage';
 
@@ -52,44 +52,45 @@ import AdminProductsEdit from './components/pages/Admin/Products/AdminProductsEd
  * Application's Routes
  */
 const routes = (
-  <IntlProvider locale="en">
     <Route name="app" path="/" component={Application}>
-        <IndexRoute name="homepage" component={Homepage} />
-        <Route name="corporate" component={CorporatePage} />
-        <Route name="pharmacy" component={PharmacyPage} />
-        <Route name="login" component={Login} />
-        <Route name="logout" component={Logout} />
-        <Route name="register" component={Register} />
-        <Route name="register-confirm" path="register/confirm/:token" component={RegisterConfirm} />
-        <Route name="reset" component={Reset} />
-        <Route name="reset-confirm" path="reset/confirm/:token" component={ResetConfirm} />
-        <Route name="account" component={AccountBase}>
-            <IndexRoute component={Account} />
-            <Route name="account-order-details" path="orders/:orderId/?" component={AccountOrderDetailsPage} />
-        </Route>
-        <Route name="collection" path="collections/:collectionId/?" component={CollectionProductsPage} />
-        <Route name="collection-slug" path="collections/:collectionId/:collectionSlug/?" component={CollectionProductsPage} />
-        <Route name="products" path="products/?" component={ProductListingPage} />
-        <Route name="product" path="products/:productId/?" component={ProductPage} />
-        <Route name="product-slug" path="products/:productId/:productSlug/?" component={ProductPage} />
-        <Route name="checkout" component={Checkout} />
-        <Route name="stores" component={StoresPage} />
-        <Route name="info" component={InfoPage} />
-        <Route name="adm" component={Admin}>
-            <IndexRoute name="adm-dashboard" component={AdminDashboard} />
-            <Route name="adm-collections" path="collections" component={AdminCollections} />
-            <Route name="adm-collection-edit" path="collections/:collectionId/?" component={AdminCollectionsEdit} />
-            <Route name="adm-contents" path="contents" component={AdminContents} />
-            <Route name="adm-content-edit" path="contents/:contentId/?" component={AdminContentsEdit} />
-            <Route name="adm-customers" path="customers" component={AdminCustomers} />
-            <Route name="adm-orders" path="orders" component={AdminOrders} />
-            <Route name="adm-order-edit" path="orders/:orderId/?" component={AdminOrdersEdit} />
-            <Route name="adm-products" path="products" component={AdminProducts} />
-            <Route name="adm-product-edit" path="products/:productId/?" component={AdminProductsEdit} />
-        </Route>
-        <Route path="*" name="not-found" component={NotFound} />
+      <IndexRoute name="homepage" component={Homepage} />
+      <Route name="pharmacy" component={PharmacyPage} />
+      <Route name="corporate" component={CorporatePage} />
+      <Route name="login" component={Login} />
+      <Route name="logout" component={Logout} />
+      <Route name="register" component={Register} />
+      <Route name="register-confirm" path="register/confirm/:token" component={RegisterConfirm} />
+      <Route name="reset" component={Reset} />
+      <Route name="reset-confirm" path="reset/confirm/:token" component={ResetConfirm} />
+      <Route name="account" component={AccountBase}>
+          <IndexRoute component={Account} />
+          <Route name="account-order-details" path="orders/:orderId/?" component={AccountOrderDetailsPage} />
+      </Route>
+      <Route name="collection" path="collections/:collectionId/?" component={CollectionProductsPage} />
+      <Route name="collection-slug" path="collections/:collectionId/:collectionSlug/?" component={CollectionProductsPage} />
+      <Route name="products" path="products/?" component={ProductListingPage} />
+      <Route name="product" path="products/:productId/?" component={ProductPage} />
+      <Route name="product-slug" path="products/:productId/:productSlug/?" component={ProductPage} />
+      <Route name="checkout" component={Checkout} />
+      <Route name="stores" component={StoresPage} />
+      <Route name="info" component={InfoPage} />
+      <Route name="articles" path="articles/?" handler={ArticlesListingPage} />
+      <Route name="article" path="articles/:contentId/?" handler={ArticlePage} />
+      <Route name="article-slug" path="articles/:contentId/:contentSlug/?" handler={ArticlePage} />
+      <Route name="adm" component={Admin}>
+        <IndexRoute name="adm-dashboard" component={AdminDashboard} />
+        <Route name="adm-collections" path="collections" component={AdminCollections} />
+        <Route name="adm-collection-edit" path="collections/:collectionId/?" component={AdminCollectionsEdit} />
+        <Route name="adm-contents" path="contents" component={AdminContents} />
+        <Route name="adm-content-edit" path="contents/:contentId/?" component={AdminContentsEdit} />
+        <Route name="adm-customers" path="customers" component={AdminCustomers} />
+        <Route name="adm-orders" path="orders" component={AdminOrders} />
+        <Route name="adm-order-edit" path="orders/:orderId/?" component={AdminOrdersEdit} />
+        <Route name="adm-products" path="products" component={AdminProducts} />
+        <Route name="adm-product-edit" path="products/:productId/?" component={AdminProductsEdit} />
+      </Route>
+      <Route path="*" name="not-found" component={NotFound} />
     </Route>
-  </IntlProvider>
 );
 
 /**

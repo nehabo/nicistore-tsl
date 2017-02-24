@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import CollectionsStore from '../../../stores/Collections/CollectionsStore';
@@ -101,16 +101,12 @@ class ProductListingPage extends React.Component {
         // Breadcrumbs
         var breadcrumbs = [
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'homepage')}
-                    locales={intlStore.getCurrentLocale()} />,
+                name: intlStore.getMessage(intlData, 'homepage'),
                 to: 'homepage',
                 params: routeParams
             },
             {
-                name: <FormattedMessage
-                    message={intlStore.getMessage(intlData, 'productsList')}
-                    locales={intlStore.getCurrentLocale()} />
+                name: intlStore.getMessage(intlData, 'productsList'),
             }
         ];
 
@@ -136,12 +132,7 @@ class ProductListingPage extends React.Component {
                         <div className="product-listing-page__breadcrumbs">
                             <Breadcrumbs links={breadcrumbs}>
                                 {this.state.totalPages > 0 ?
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'pagination')}
-                                        locales={intlStore.getCurrentLocale()}
-                                        currentPage={this.state.currentPage}
-                                        totalPages={this.state.totalPages} />
-                                    :
+                                intlStore.getMessage(intlData, 'pagination'):
                                     null
                                 }
                             </Breadcrumbs>
@@ -152,9 +143,7 @@ class ProductListingPage extends React.Component {
                     </div>
 
                     <div className="product-listing-page__products">
-                        <ProductList title={<FormattedMessage
-                                                    message={intlStore.getMessage(intlData, 'pageTitle')}
-                                                    locales={intlStore.getCurrentLocale()} />}
+                        <ProductList title={intlStore.getMessage(intlData, 'pageTitle')}
                                      filters={filters}
                                      products={this.state.products}
                                      paginateTo="products"

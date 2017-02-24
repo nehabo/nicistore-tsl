@@ -4,7 +4,7 @@
 import React from 'react';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 import moment from 'moment';
-import {FormattedMessage} from 'react-intl';
+// import {FormattedMessage} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../../stores/Application/IntlStore';
@@ -68,18 +68,10 @@ class AdminCustomers extends React.Component {
         let intlStore = this.context.getStore(IntlStore);
 
         let headings = [
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'nameHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'emailHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'createdAtHeading')}
-                locales={intlStore.getCurrentLocale()} />,
-            <FormattedMessage
-                message={intlStore.getMessage(intlData, 'status')}
-                locales={intlStore.getCurrentLocale()} />
+            intlStore.getMessage(intlData, 'nameHeading'),
+            intlStore.getMessage(intlData, 'emailHeading'),
+            intlStore.getMessage(intlData, 'createdAtHeading'),
+            intlStore.getMessage(intlData, 'status')
         ];
 
         let rows = this.state.customers.map(function (customer) {
@@ -116,9 +108,7 @@ class AdminCustomers extends React.Component {
                 <div className="admin-customers__header">
                     <div className="admin-customers__title">
                         <Heading size="medium">
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'title')}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'title')}
                         </Heading>
                     </div>
                 </div>

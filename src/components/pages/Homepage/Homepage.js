@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import async from 'async';
-import connectToStores from 'fluxible-addons-react/connectToStores';
-import {FormattedMessage} from 'react-intl';
+import { connectToStores } from 'fluxible-addons-react';
+// import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -172,9 +172,7 @@ class Homepage extends React.Component {
 
         // Fetaured Products Title Component
         let featuredProductsTitle = function() {
-            return <FormattedMessage
-                       message={intlStore.getMessage(intlData, 'productsList')}
-                       locales={intlStore.getCurrentLocale()} />;
+            return intlStore.getMessage(intlData, 'productsList');
         };
 
         //
@@ -251,18 +249,19 @@ class Homepage extends React.Component {
 /**
  * Flux
  */
-Homepage = connectToStores(Homepage, [CollectionsStore, ProductsHomepageStore], (context) => {
-    return {
-        _banners: context.getStore(ContentsListStore).getOrderedContentsOfType('banner', ['homepage'], true),
-        _articles: context.getStore(ContentsListStore).getOrderedContentsOfType('article', ['homepage'], true),
-        _collections: context.getStore(CollectionsStore).getOrderedCollections(['homepageFeatured'], true, 'homepageFeaturedOrder'),
-        _featuredCategories: context.getStore(CollectionsStore).getCollections(['category', 'homepage']),
-        _featuredCollections: context.getStore(CollectionsStore).getCollections(['collection', 'homepage']),
-        _featuredProducts: context.getStore(ProductsHomepageStore).getProducts(),
-        _options: context.getStore(SearchStore).getOptionsList(),
-        _selected: context.getStore(SearchStore).getSelectedItems(),
-    };
-});
+Homepage = connectToStores(Homepage,
+  [CollectionsStore, ProductsHomepageStore], (context) => {
+      return {
+          _banners: context.getStore(ContentsListStore).getOrderedContentsOfType('banner', ['homepage'], true),
+          _articles: context.getStore(ContentsListStore).getOrderedContentsOfType('article', ['homepage'], true),
+          _collections: context.getStore(CollectionsStore).getOrderedCollections(['homepageFeatured'], true, 'homepageFeaturedOrder'),
+          _featuredCategories: context.getStore(CollectionsStore).getCollections(['category', 'homepage']),
+          _featuredCollections: context.getStore(CollectionsStore).getCollections(['collection', 'homepage']),
+          _featuredProducts: context.getStore(ProductsHomepageStore).getProducts(),
+          _options: context.getStore(SearchStore).getOptionsList(),
+          _selected: context.getStore(SearchStore).getSelectedItems(),
+      };
+  });
 
 /**
  * Export.

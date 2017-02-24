@@ -2,7 +2,7 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -70,8 +70,7 @@ class CheckoutSummary extends React.Component {
                 {missingInfo.length > 0 ?
                     <div className="checkout-summary__warning">
                         <Heading size="small">
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'whatsMissing')}
-                                              locales={intlStore.getCurrentLocale()} />
+                          {intlStore.getMessage(intlData, 'whatsMissing')}
                         </Heading>
                         {missingInfo.map(function (detail, idx) {
                             return (
@@ -87,8 +86,7 @@ class CheckoutSummary extends React.Component {
                 <div className="checkout-summary__row checkout-summary__submit">
                     <div className="checkout-summary__submit-button">
                         <Button type="primary" disabled={!this.props.readyForCheckout} onClick={this.props.onCheckoutClick}>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'checkout')} 
-                                              locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(intlData, 'checkout')}
                         </Button>
                     </div>
                 </div>

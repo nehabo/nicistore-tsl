@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import {FormattedMessage, FormattedNumber} from 'react-intl';
+// import {FormattedMessage, FormattedNumber} from 'react-intl';
 import {Link} from 'react-router';
 
 import {slugify} from '../../../utils/strings';
@@ -83,9 +83,7 @@ class ProductListItem extends React.Component {
                     </div>
                     <div className="product-list-item__name" itemProp="name">
                         <Text size="small">
-                            <FormattedMessage
-                                message={intlStore.getMessage(this.props.product.name)}
-                                locales={intlStore.getCurrentLocale()} />
+                            {intlStore.getMessage(this.props.product.name)}
                         </Text>
                         <span style={{display: 'none'}} itemProp="sku">{this.props.product.sku}</span>
                     </div>
